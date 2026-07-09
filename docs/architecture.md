@@ -1,51 +1,113 @@
-# Codebase Architecture & UX System
+# Codebase-Architektur & UX-System — Lassak Digital
 
-This guide outlines the UX features and code structure used to build the Lassak Digital website.
+Dieses Dokument beschreibt die Architektur, das UX-System und die Struktur der Codebase von `lassakdigital.de`.
 
-## 1. Design & Typography
+## 1. Systemübersicht & Stack
 
-The page uses a bold, premium dark theme design with neon coral-orange highlights.
+Die Website ist als performante, statische Landingpage konzipiert und verwendet keine Frameworks oder Build-Systeme, um eine maximale Ladegeschwindigkeit und Wartbarkeit zu gewährleisten.
 
-- **Colors**:
-  - Backgrounds: Solid ultra-dark grey `#0a0a0c` for text readability, with card accents in `#121216` styled with translucent borders.
-  - Text: Clean white `#ffffff` headings and medium-grey `#a0a0a5` body copy.
-  - Accents: Neon coral-orange `#ff4d1c` for indicators, cursor highlights, custom borders, and hover states.
-- **Fonts**:
-  - Headings: `Syne` (a display typeface with high character and geometric forms, giving the page an agency feel).
-  - Body: `DM Sans` (clean, geometric sans-serif prioritizing legibility across device resolutions).
+### Technologie-Stack
+- **Frontend-Kern**: Semantisches HTML5.
+- **Styling**: CSS3 (Vanilla CSS) mit systemweiten CSS-Variablen. Kein CSS-Präprozessor oder Tailwind.
+- **Interaktionen**: Vanilla JavaScript (ES6+), direkt in den HTML-Dokumenten als `<script>` eingebunden.
+- **Hosting**: GitHub Pages (statisches Serving).
+- **DNS-Routing**: Namecheap CNAME und Apex A-Records.
 
-## 2. Interaction Details
+### Ordnerstruktur
+```text
+/
+├── .git/               # Git-Versionsverwaltung
+├── .nojekyll           # Deaktiviert Jekyll-Processing auf GitHub Pages
+├── AGENTS.md           # Konventionsregeln für KI-Entwickler
+├── CLAUDE.md           # Einstiegspunkt für KI-Entwickler (verweist auf AGENTS.md)
+├── CNAME               # Domain-Mapping für GitHub Pages (www.lassakdigital.de)
+├── CHANGELOG.md        # Manuelles Projekt-Changelog
+├── index.html          # Startseite & Haupt-Landingpage
+├── impressum.html      # Rechtlich erforderliches Impressum
+├── datenschutz.html    # Rechtlich erforderliche Datenschutzerklärung
+├── style.css           # Zentrales Stylesheet (Layout, Design-System, Animationen)
+├── logo.png            # Unbenutzte Logo-Ressource im Root
+├── docs/               # Technische Projektdokumentation
+│   ├── README.md       # Übersicht der Dokumente
+│   ├── architecture.md # Dieses Dokument (Architektur & UX)
+│   ├── deployment.md   # Deployment- & DNS-Konfigurationsleitfaden
+│   ├── CONVENTIONS.md  # Codierungs- und Interaktionsrichtlinien
+│   ├── DATA-MODEL.md   # Dokumentation des (nicht vorhandenen) Datenmodells
+│   ├── API-SURFACE.md  # Beschreibung der Schnittstellen & Integrationen
+│   ├── DECISIONS.md    # Dokumentation von Architekturentscheidungen (ADR)
+│   ├── DEPENDENCIES.md # Externe Ressourcen und Lizenzen
+│   ├── GLOSSARY.md     # Glossar der Domänen-Fachbegriffe
+│   ├── CHANGELOG-AI.md # Protokoll der KI-Änderungen
+│   └── audit/          # Ergebnisse des System-Audits
+│       ├── AUDIT.md    # Befundbericht
+│       ├── FIX-PLAN.md # Korrekturmaßnahmenplan
+│       └── AUDIT-IGNORE.md # Ignorierte Befunde
+└── images/             # Bild- und Vektorressourcen
+    ├── logo_lassakdigital-black.svg
+    └── logo_lassakdigital-white.svg
+```
 
-### Custom Cursors
-A dynamic custom cursor is managed via JavaScript inside `index.html` and styled in `style.css`:
-- **Dot Cursor (`.cursor`)**: Tracks the exact mouse coordinates instantly.
-- **Ring Cursor (`.cursor-ring`)**: Follows the mouse position with a lag or easing effect (`rx += (mx - rx) * 0.15`) to create a smooth tracking motion.
-- On hover of buttons or links, the cursor scale increases and the ring color shifts to highly visible neon orange (`rgba(255, 77, 28, 0.7)`).
-- Custom cursors are only active on desktop computers (`@media (pointer: fine)`). Default system cursors are hidden in this state.
+---
 
-### Scroll Reveal Animation
-Sections or cards have a `.reveal` class.
-- A JavaScript `IntersectionObserver` detects when an element scrolls into the viewport (10% threshold) and adds the `.visible` class.
-- The transitions are configured with a custom cubic-bezier timing function (`cubic-bezier(0.16, 1, 0.3, 1)`) to create a smooth elastic entry effect.
-- Style transition definition:
-  ```css
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  ```
+## 2. Design-System & Typografie
 
-## 3. Responsive Principles
-The design uses a **Mobile-First** CSS pattern:
-- Base styles are defined for smartphone displays (single-column flex layouts, smaller root font sizes, appropriate target paddings).
-- Media queries `@media (min-width: 768px)` (tablet) and `@media (min-width: 1024px)` (desktop) expand layout columns via CSS Grid, adjust margins, and introduce custom cursor elements.
-- Interactive elements (like cards in Services, KPI Grid, and Pricing) utilize grid configurations that wrap columns automatically:
-  ```css
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  ```
+Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es implementiert ein hochwertiges, kaufmännisch-seriöses Dark-Theme mit neonfarbenen Highlights.
+
+### Farbpalette
+- **Hintergrund**: `--bg-primary` (`#0a0a0c`) sorgt für ein tiefes, modernes Schwarz.
+- **Card-Hintergründe**: `--bg-secondary` (`#121216`) heben Inhaltsbereiche durch leichte Kontraste und transluzente Ränder ab.
+- **Textfarben**: `--text-primary` (`#ffffff`) für eine klare Hierarchie der Überschriften; `--text-secondary` (`#a0a0a5`) für angenehm lesbaren Fließtext.
+- **Akzente**: Neon-Coral/Orange (`--accent`: `#ff4d1c`) dient als primärer Interaktions-Indikator (Hover-States, Custom Cursor).
+
+### Typografie
+- Die gesamte Website verwendet die Schriftart **Inter** (geladen via Google Fonts CDN).
+- CSS-Variablen `--font-display` und `--font-body` verweisen beide auf `'Inter', sans-serif`, um ein einheitliches Schriftbild zu gewährleisten. Hierarchien werden ausschließlich über Font-Weights (300 bis 800) gesteuert.
+
+---
+
+## 3. Interaktions- & Animationsstandards
+
+### Dynamischer Custom Cursor
+Auf Desktop-Geräten (gefiltert via `@media (pointer: fine)`) wird der Standard-Mauszeiger des Systems ausgeblendet (`cursor: none`) und durch zwei CSS-Elemente ersetzt:
+- **Dot Cursor (`.cursor`)**: Folgt den Mauskoordinaten ohne Verzögerung.
+- **Ring Cursor (`.cursor-ring`)**: Folgt der Mausposition verzögert über einen Easing-Algorithmus in JS (`rx += (mx - rx) * 0.15`), was eine flüssige Bewegung erzeugt.
+- **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem intensiveren Neon-Orange (`rgba(255, 77, 28, 0.7)`).
+
+### Scroll-Reveal-Animation
+Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: translateY(30px)`). 
+- Ein `IntersectionObserver` in JavaScript überwacht das Scrollverhalten.
+- Sobald ein Element zu 10 % sichtbar ist, erhält es die Klasse `.visible`, was eine sanfte CSS-Transition triggert.
+- Transition-Timing: `cubic-bezier(0.16, 1, 0.3, 1)` (für einen elastischen Übergang).
+
+---
+
+## 4. Navigations-System & Diskrepanzen
+
+### Navigations-Struktur
+Die Navigation ist sticky am oberen Bildschirmrand positioniert.
+- **Desktop (>= 1024px)**: Horizontale Menüleiste mit Logo links und einem Call-to-Action-Button ("Jetzt anfragen") rechts.
+- **Mobil (< 1024px)**: Einblendung eines Hamburger-Menü-Icons. Beim Klick wird ein vollflächiges, semitransparentes Menü (Glassmorphismus-Effekt) vertikal heruntergefahren.
+
+### Dokumentierte vs. Reale Funktionalität (Wichtiger Audit-Befund)
+In früheren Versionen der Dokumentation (`architecture.md`) und im `CHANGELOG.md` (Version 1.1.0) wurden **Dropdown-Untermenüs** für Navigationspunkte wie `Leistungen`, `Case Studies` und `Preise` beschrieben. 
+
+**Ist-Zustand des Codes**:
+- Es sind **keine** Dropdown-Menüs im HTML (`index.html`) oder CSS (`style.css`) implementiert.
+- Die Navigation besteht ausschließlich aus flachen Anker-Links (`#about`, `#variants`, `#contact`).
+- Die Dokumentation der Dropdown-Mechaniken entspricht einem geplanten Zustand, der im Code (noch) nicht existiert.
+
+---
+
+## 5. Systemdatenfluss
+
+Da es sich um eine rein statische Website handelt, gibt es keinen Backend-Datenfluss. Der Datenfluss beschränkt sich auf clientseitige Weiterleitungen und externe Integrationen:
+
+```mermaid
+graph TD
+    Client[Browser des Besuchers] -->|HTTP Request| GitHubPages[GitHub Pages Server]
+    GitHubPages -->|Liefert statische Dateien| Client
+    Client -->|Terminbuchung| Calendly[Calendly Iframe Widget]
+    Client -->|Direktnachricht| WhatsApp[WhatsApp API Link]
+    Client -->|E-Mail-Anfrage| MailServer[Lokaler Mail-Client mailto:]
+    Client -->|Lade Schriftart| GoogleFonts[Google Fonts CDN]
+```
