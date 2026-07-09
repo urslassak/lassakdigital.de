@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2026-07-09
+
+### Added
+- Created `robots.txt` in the root directory to guide search engine crawlers.
+- Created `sitemap.xml` in the root directory to index the primary pages (`/`, `/impressum.html`, `/datenschutz.html`).
+- Added JSON-LD Structured Data to `index.html` (LocalBusiness/ProfessionalService) to improve regional and local search discovery.
+- Added Open Graph (OG) and Twitter Card metadata to `index.html` for optimized link previews on social platforms.
+
+### Changed
+- Added descriptive metadata (`<meta name="description">`) and canonical links (`<link rel="canonical">`) to `index.html`, `impressum.html`, and `datenschutz.html`.
+- Implemented `<meta name="robots" content="noindex, follow">` in `impressum.html` and `datenschutz.html` to prevent boilerplate legal notices from diluting primary search results.
+
 ## [1.3.0] - 2026-07-09
 
 ### Added

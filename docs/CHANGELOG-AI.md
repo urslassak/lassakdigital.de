@@ -2,6 +2,18 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.7.0-seo-optimization] — 2026-07-09
+
+### SEO-Check und On-Page-Optimierung
+- **SEO-01** ✅ **Hinzufügen von Meta-Beschreibungen, Kanonischen URLs & Robots-Steuerung** (`index.html`, `impressum.html`, `datenschutz.html`): Zuweisung eindeutiger Meta-Beschreibungen (`<meta name="description">`) zur Steigerung der Klickrate (CTR), Definition kanonischer Links (`<link rel="canonical">`) zur Vermeidung von Duplicate Content sowie explizite robots-Direktive (`index, follow`) für die Startseite.
+- **SEO-02** ✅ **Social-Sharing-Optimierung** (`index.html`): Integration von Open Graph (OG) und Twitter Card Meta-Tags im `<head>` zur ansprechenden Darstellung geteilter Links in sozialen Medien (z. B. LinkedIn, Facebook).
+- **SEO-03** ✅ **JSON-LD Strukturierte Daten** (`index.html`): Implementierung von strukturierten Daten im JSON-LD-Format des Typs `ProfessionalService` zur Stärkung der regionalen Relevanz (Bodensee-Region/Tettnang) und Auszeichnung der angebotenen Social Ads Dienstleistungen.
+- **SEO-04** ✅ **Robots-Ausschlüsse für Pflichtseiten** (`impressum.html`, `datenschutz.html`): Vergabe des Meta-Tags `<meta name="robots" content="noindex, follow">`, um das Indexierungsbudget zu schonen und zu verhindern, dass rechtliche Musterseiten das Suchmaschinen-Ranking negativ beeinflussen.
+- **SEO-05** ✅ **Suchmaschinen-Steuerungsdateien** (`robots.txt`, `sitemap.xml`): Erstellung einer `robots.txt` im Root zur Steuerung der Crawler und einer statischen `sitemap.xml` zur vollständigen Erfassung aller drei Unterseiten.
+- **SEO-06** ✅ **Aktualisierung der Changelogs** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Dokumentation der Optimierungen.
+
+---
+
 ## [1.6.0-timeline-fix] — 2026-07-09
 
 ### Überarbeitung des 7-Schritte-Zeitstrahls mit CSS Counters
