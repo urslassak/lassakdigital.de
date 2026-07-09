@@ -429,7 +429,7 @@
         e.stopPropagation();
         const isActive = navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
-        navElement.classList.toggle('mobile-open');
+        document.body.classList.toggle('mobile-open');
         navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
       });
     }
@@ -440,7 +440,7 @@
       link.addEventListener('click', () => {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
-        navElement.classList.remove('mobile-open');
+        document.body.classList.remove('mobile-open');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
@@ -450,7 +450,7 @@
       if (navElement && !navElement.contains(e.target)) {
         navToggle.classList.remove('active');
         navMenu.classList.remove('active');
-        navElement.classList.remove('mobile-open');
+        document.body.classList.remove('mobile-open');
         navToggle.setAttribute('aria-expanded', 'false');
       }
     });
