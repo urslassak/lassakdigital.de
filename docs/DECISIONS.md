@@ -15,14 +15,14 @@ Dieses Dokument listet wesentliche Architekturentscheidungen (Architecture Decis
 
 ---
 
-## ADR 2: Verwendung von Google Fonts via CDN (Revisionsbedarf)
+## ADR 2: Lokales Hosten der Google Fonts
 
-- **Status**: Überprüfungsbedürftig (Befund im Audit 2026-07-09)
-- **Kontext**: Für ein einheitliches Design wurde die Schriftart "Inter" ausgewählt. Sie wird über das Google Fonts CDN eingebunden.
-- **Entscheidung**: Direkte Einbindung der Stylesheet-Links von `fonts.googleapis.com` im HTML-Header.
+- **Status**: Akzeptiert (Revision vom 2026-07-09 abgeschlossen)
+- **Kontext**: Für ein einheitliches Design wurde die Schriftart "Inter" ausgewählt. Die vorherige Einbindung über das Google Fonts CDN verstieß gegen die DSGVO.
+- **Entscheidung**: Die Schriftarten wurden heruntergeladen, in `/fonts/` abgelegt und werden über `@font-face` in `style.css` geladen.
 - **Konsequenz**:
-  - **Vorteile**: Sehr einfache Integration, schneller Ladevorgang durch Googles CDN.
-  - **Nachteile**: **DSGVO-Verstoß** in Deutschland. Durch den direkten Aufruf der Google-Server wird die IP-Adresse des Nutzers ohne vorherige Zustimmung übertragen (Urteil des LG München 2022). Die Schriftart muss im Rahmen von Phase 2 lokal gehostet werden.
+  - **Vorteile**: Volle DSGVO-Konformität, keine Abhängigkeit von externen Servern bei Schriftarten-Ladevorgängen.
+  - **Nachteile**: Lokales Hosting erhöht das Projekt-Volume minimal (ca. 200 KB an Schriftdateien).
 
 ---
 
@@ -37,11 +37,11 @@ Dieses Dokument listet wesentliche Architekturentscheidungen (Architecture Decis
 
 ---
 
-## ADR 4: Terminbuchung über Calendly Iframe
+## ADR 4: Terminbuchung über Calendly Iframe mit Zwei-Klick-Konsent
 
-- **Status**: Akzeptiert
-- **Kontext**: Die wichtigste Konvertierungsaktion der Landingpage ist das Buchen einer kostenfreien Potenzialanalyse. Ein eigenes Buchungssystem zu entwickeln, ist wirtschaftlich nicht sinnvoll.
-- **Entscheidung**: Einbettung des Calendly-Widgets über ein standardmäßiges `<iframe>` direkt auf der Seite.
+- **Status**: Akzeptiert (Revision vom 2026-07-09 abgeschlossen)
+- **Kontext**: Die wichtigste Konvertierungsaktion der Landingpage ist das Buchen einer kostenfreien Potenzialanalyse. Zur Einhaltung der DSGVO und Verhinderung von Custom-Cursor-Freezes darf das Iframe nicht ungefragt geladen werden.
+- **Entscheidung**: Einbettung eines statischen Platzhalters für das Calendly-Iframe. Erst nach Klick des Nutzers auf "Kalender laden" wird das Iframe über JavaScript dynamisch erzeugt und gerendert.
 - **Konsequenz**:
-  - **Vorteile**: Sofortige Buchungsfunktionalität ohne Backend-Aufwand, professionelle Terminverwaltung.
-  - **Nachteile**: Beeinträchtigung des Custom-Cursors (Mauszeiger friert beim Überfahren des Iframes ein, da das Iframe die Mausereignisse abfängt). DSGVO-Relevanz, da Calendly-Server beim Laden direkt kontaktiert werden.
+  - **Vorteile**: DSGVO-konforme Einbettung von Calendly, Behebung des Custom-Cursor-Einfrierens beim ersten Laden der Seite.
+  - **Nachteile**: Der Nutzer muss einen zusätzlichen Klick ausführen, um den Kalender anzuzeigen.

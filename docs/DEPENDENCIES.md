@@ -14,17 +14,17 @@ Dieses Dokument listet alle externen Abhängigkeiten, Bibliotheken und eingebund
 
 Diese Dienste werden zur Laufzeit direkt über CDNs (Content Delivery Networks) oder Iframes eingebunden:
 
-### Google Fonts (Inter)
+### Google Fonts (Inter) [LOKAL GEHOSTET]
 - **Zweck**: Bereitstellung der Schriftart **Inter**.
-- **Einbindung**: `<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">`
+- **Einbindung**: Lokal eingebunden über `@font-face` in `style.css` und geladen aus der lokalen `fonts/inter.css` Datei. Keine externe Verbindung erforderlich.
 - **Anbieter**: Google Ireland Limited / Google LLC.
-- **DSGVO-Bewertung**: **Kritisch**. Sollte zur Einhaltung der Datenschutzrichtlinien durch lokales Hosting der Schriftarten ersetzt werden.
+- **DSGVO-Bewertung**: **Sicher**. Da alle Schriftdateien direkt vom eigenen Webserver ausgeliefert werden, erfolgt keine Datenübertragung zu Google-Servern.
 
-### Calendly Widget (Iframe)
+### Calendly Widget (Iframe) [ZWEI-KLICK-KONSENT]
 - **Zweck**: Interaktiver Buchungskalender für Erstgespräche.
-- **Einbindung**: `<iframe>` in `index.html` (und verlinkt in `datenschutz.html`).
+- **Einbindung**: Dynamisch erzeugtes `<iframe>` in `index.html` nach explizitem Klick des Nutzers auf "Kalender laden".
 - **Anbieter**: Calendly LLC.
-- **DSGVO-Bewertung**: **Mittel**. Es werden beim Laden Daten an Server in den USA übertragen. Die IP-Adresse wird erfasst. Eine Einwilligung oder ein Click-to-Load-Mechanismus erhöht die Rechtssicherheit.
+- **DSGVO-Bewertung**: **Sicher**. Es werden erst nach vorheriger Interaktion (Einwilligung durch Klick) Daten an Server von Calendly übertragen. Der Page-Load selbst bleibt datenschutzkonform.
 
 ---
 
