@@ -2,6 +2,67 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.15.0-contrast-fix-nav-cta] — 2026-07-10
+
+### Kontrast-Fix für den Header-Button
+- **CF-01** ✅ **Kontrast-Optimierung Navigations-CTA** (`style.css`): Explizite Festlegung der Textfarbe des "Jetzt anfragen"-Buttons (`.nav-menu .nav-cta`) und dessen Hover-Zustands (`.nav-menu .nav-cta:hover`) auf die dunkle Hintergrundvariable `var(--bg-primary)` (`#040d1a`). Dies überschreibt die standardmäßige weiße Textfarbe (`var(--text-primary)`) und die cyanfarbene Hover-Textfarbe der Navigationslinks und sorgt für einen barrierefreien, optimalen Kontrast auf dem hellen Cyber-Cyan-Hintergrund des Buttons.
+- **CF-02** ✅ **Changelogs aktualisiert** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Dokumentation der Optimierung.
+
+---
+
+## [1.14.0-legal-and-location-update] — 2026-07-09
+
+### Aktualisierung von Impressum & Datenschutz und Ortswechsel
+- **LL-01** ✅ **Design-Anpassung Pflichtseiten** (`style.css`): Implementierung von CSS-Regeln für `.legal-container` und dessen untergeordnete Elemente (`.legal-header`, `.legal-title`, `.legal-meta`, `.legal-content`, `.legal-back-btn` etc.) zur Angleichung der Typografie (Inter) und Farben an das bestehende Dark-Theme (Nachtblau/Cyber-Cyan).
+- **LL-02** ✅ **Ortsaktualisierung in rechtlichen Dokumenten** (`impressum.html`, `datenschutz.html`): Änderung des Diensteanbieters und der verantwortlichen Stelle von "Tettnang" auf "Meckenbeuren" (PLZ 88074 bleibt gleich).
+- **LL-03** ✅ **Rechtliche Aktualisierung Impressum** (`impressum.html`): Aktualisierung des Gesetzesverweises im Header von "§ 5 TMG" auf das neue, seit dem 14. Mai 2024 gültige "§ 5 DDG" (Digitale-Dienste-Gesetz). Entfernung veralteter Inline-Styles.
+- **LL-04** ✅ **Bereinigung Datenschutzseite** (`datenschutz.html`): Vollständiges Entfernen der veralteten Datenschutzklausel für das Terminbuchungstool "Calendly", da dieses nicht mehr auf der Website eingebunden ist.
+- **LL-05** ✅ **Google Fonts Konformität** (`datenschutz.html`): Anpassung der Erklärung für Google Fonts, um das datenschutzkonforme lokale Hosten der Schriften (ohne Verbindung zu externen Google-Servern) korrekt zu deklarieren.
+- **LL-06** ✅ **Ergänzung Datenschutzbestimmungen** (`datenschutz.html`): Hinzufügen von Abschnitten zu SSL- bzw. TLS-Verschlüsselung (für sichere Formspree-Datenübertragungen) sowie Cookies (Deklaration über den Verzicht von Tracking und Cookies).
+- **LL-07** ✅ **Structured Data & Koordinaten-Update** (`index.html`): Aktualisierung des Standorts in den strukturierten JSON-LD-Daten von "Tettnang" auf "Meckenbeuren" und Anpassung der GPS-Koordinaten im `GeoCoordinates`-Objekt auf die Meckenbeuren-Werte (Breitengrad: `47.7011`, Längengrad: `9.5638`).
+- **LL-08** ✅ **Changelogs & Fortschrittsdokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Protokollierung aller getätigten Maßnahmen in den Changelogs.
+
+---
+
+## [1.13.0-theme-change-deep-tech] — 2026-07-09
+
+### Theme-Wechsel zu "Deep Tech & Trust" (Nachtblau/Cyber-Cyan)
+- **TC-08** ✅ **CSS-Variablen & Farbanpassungen** (`style.css`): Übergang zum "Deep Tech & Trust" Dark-Theme. Definition der Variablen `--bg-primary` (`#040d1a`), `--bg-secondary` (`#0b172a`), `--text-primary` (`#ffffff`), `--text-secondary` (`#94a3b8`), `--accent` (`#00e5ff`), `--accent-hover` (`#00b8cc`) und `--accent-glow` (`rgba(0, 229, 255, 0.4)`). Anpassung weiterer themenspezifischer Variablen wie `--accent-dim`, `--border-color`, `--border-hover`, `--border-glow`, `--shadow-main` und `--shadow-accent`.
+- **TC-09** ✅ **Kontrast-Optimierungen für helle Akzentfarben** (`style.css`): Anpassung der Textfarbe bei Elementen, die sich bei Hover mit der hellen Akzentfarbe füllen. Die Textfarbe auf primary buttons (`.btn-primary`) und Timeline-Schritten bei Hover (`.timeline-step:hover::before`) wurde auf `var(--bg-primary)` gesetzt, um eine optimale Lesbarkeit des Texts auf hellem Cyber-Cyan-Grund zu gewähren.
+- **TC-10** ✅ **Ersetzung verbleibender Gold-Farbwerte** (`style.css`): Aktualisierung der `.cursor-ring`-Grenzlinie und des Glühschattens, der Glow-Elemente im Hero-Bereich (`.hero-glow2`) und des Farbverlauf-Zeitstrahls (`.timeline::before`) auf die neuen, cyber-cyan-basierten Transluzenz-Werte.
+- **TC-11** ✅ **SVG-Logo Rückbau in HTML** (`index.html`, `impressum.html`, `datenschutz.html`): Rückgängigmachen des vorherigen Logo-Wechsels. Alle Image-Tags verwenden nun wieder das weiße Logo (`images/logo_lassakdigital-white.svg`) zur Gewährleistung der Lesbarkeit auf dem tiefdunklen nachtblauen Hintergrund.
+- **TC-12** ✅ **Mauszeiger-Hover Anpassung im Skript** (`js/main.js`): Aktualisierung der interaktiven Hover-Logik im Javascript. Der custom cursor-ring wechselt bei Mouseenter nun zu Cyber-Cyan (`rgba(0, 229, 255, 0.7)`) und weicht bei Mouseleave wieder zu `var(--accent-glow)`.
+- **TC-13** ✅ **Entwickler-Richtlinien aktualisiert** (`AGENTS.md`): Anpassung der Design-System-Variablen an das neue "Deep Tech & Trust" Theme im Regelwerk der KI-Agents.
+- **TC-14** ✅ **Architektur- und Interaktions-Dokumentation angepasst** (`docs/architecture.md`): Überarbeitung von Abschnitt 2 ("Design-System & Typografie") zur Erfassung der Nachtblau/Cyber-Cyan Palette und Aktualisierung der Custom-Cursor-Beschreibung in Abschnitt 3.
+- **TC-15** ✅ **Changelogs fortgeschrieben** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Protokollierung aller vorgenommenen Design- und Code-Änderungen.
+
+---
+
+## [1.12.0-theme-change-white-gold] — 2026-07-09
+
+### Theme-Wechsel zu White & Gold (Light-Theme)
+- **TC-01** ✅ **CSS-Variablen & Farbanpassungen** (`style.css`): Ablösung des bisherigen Dark-Themes und der neon-orangen Akzente durch das neue White-Gold-Black Light-Theme. Definition der Variablen `--bg-primary` (`#ffffff`), `--bg-secondary` (`#f7f7f9`), `--text-primary` (`#111111`), `--text-secondary` (`#5a5a60`), `--accent` (`#d4af37`), `--accent-hover` (`#b5952f`) und `--accent-glow` (`rgba(212, 175, 55, 0.4)`). Anpassung weiterer themenspezifischer Variablen wie `--accent-dim`, `--border-color`, `--border-hover`, `--border-glow`, `--shadow-main` und `--shadow-accent`.
+- **TC-02** ✅ **Ersetzung verbleibender Orange-Farbwerte** (`style.css`): Korrektur aller im Stylesheet hardcodierten Orange-Werte. Aktualisierung der `.cursor-ring`-Grenzlinie und des Glühschattens, des Primary-Button-Hover-Schattens, der Glow-Elemente im Hero-Bereich (`.hero-glow2`) und des Farbverlauf-Zeitstrahls (`.timeline::before`) auf die neuen, goldbasierten Transluzenz-Werte.
+- **TC-03** ✅ **SVG-Logo Austausch in HTML** (`index.html`, `impressum.html`, `datenschutz.html`): Aktualisierung aller Image-Tags vom bisherigen weißen Logo (`images/logo_lassakdigital-white.svg`) auf die schwarze Logo-Variante (`images/logo_lassakdigital-black.svg`) zur Sicherstellung einer perfekten Lesbarkeit auf dem weißen Hintergrund.
+- **TC-04** ✅ **Mauszeiger-Hover Anpassung im Skript** (`js/main.js`): Aktualisierung der interaktiven Hover-Logik im Javascript. Der custom cursor-ring wechselt bei Mouseenter nun zu transluzentem Gold (`rgba(212, 175, 55, 0.7)`) und weicht bei Mouseleave wieder zu `var(--accent-glow)`.
+- **TC-05** ✅ **Entwickler-Richtlinien aktualisiert** (`AGENTS.md`): Anpassung der Design-System-Variablen an das neue Light-Theme im Regelwerk der KI-Agents zur Einhaltung konsistenter Gestaltungsrichtlinien.
+- **TC-06** ✅ **Architektur- und Interaktions-Dokumentation angepasst** (`docs/architecture.md`): Überarbeitung von Abschnitt 2 ("Design-System & Typografie") zur Erfassung der White-Gold-Black Palette und Aktualisierung der Custom-Cursor-Beschreibung in Abschnitt 3.
+- **TC-07** ✅ **Changelogs fortgeschrieben** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Protokollierung aller vorgenommenen Design- und Code-Änderungen.
+
+---
+
+## [1.11.0-timeline-alignment-formspree] — 2026-07-09
+
+### Angleichung Schritt 7 & Formspree-Datenschutz-Doku
+- **WAF-01** ✅ **Angleichung Workflow-Schritt 7** (`index.html`): Vollständige Überarbeitung des 7. Schritts (Modul 7) in der geordneten Liste `.timeline`. Der Schritt entspricht nun semantisch exakt den vorherigen Modulen (Verwendung der Klasse `.workflow-card`, `.workflow-badge` und `.workflow-desc`). Hinzufügen der richtigen Textinhalte aus `Module.md`. Korrektur des fehlerhaften HTML-Tag-Verschachtelungsfehlers und korrekter Abschluss der Liste mit `</ol>`.
+- **WAF-02** ✅ **CSS-Bereinigung** (`style.css`): Entfernung der spezifischen `.timeline-step:last-child` Ausnahmeregel, damit sich Schritt 7 automatisch und nahtlos in das Standard-Timeline-Layout integriert.
+- **WAF-03** ✅ **Erweiterung der DSGVO-Dokumentation** (`docs/DEPENDENCIES.md`): Integration von Formspree unter den externen Integrationen mit Details zum Zweck (Rückruf-Kontaktformular), der Einbindung (direkter POST-Request) und der DSGVO-Bewertung (Direktübertragung an Formspree-Server).
+- **WAF-04** ✅ **Aktualisierung der Schnittstellen-Dokumentation** (`docs/API-SURFACE.md`): Ergänzung von Formspree in der Schnittstellen-Tabelle mit Ziel-URL `formspree.io`, Authentifizierung `Token im POST-URL` und Validierung `Keine required-Felder`. Hinzufügen eines Absatzes in Bereich 3 zur detaillierten Erklärung des direkten Client-zu-Server-Datenflusses bei Formspree.
+- **WAF-05** ✅ **Ergänzung der Datenschutzerklärung** (`datenschutz.html`): Einfügen eines neuen, DSGVO-konformen Abschnitts "Kontaktformular (Formspree)" unter der Rubrik 3 "Datenerfassung auf dieser Website" mit ausführlichen Hinweisen zur Datenübertragung in die USA, Rechtsgrundlagen und Link zur Formspree-Datenschutzerklärung.
+- **WAF-06** ✅ **Aktualisierung des Projekt-Changelogs** (`CHANGELOG.md`): Aufzeichnung aller vorgenommenen Änderungen unter Version `1.8.0`.
+
+---
+
 ## [1.10.0-remove-calendly] — 2026-07-09
 
 ### Entfernung von Calendly und Platzierung von "Direkter Draht" am Seitenende

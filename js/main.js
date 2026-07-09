@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.height = '14px';
         ring.style.width = '48px';
         ring.style.height = '48px';
-        ring.style.borderColor = 'rgba(255, 77, 28, 0.7)';
+        ring.style.borderColor = 'rgba(0, 229, 255, 0.7)';
       });
       el.addEventListener('mouseleave', () => {
         cursor.style.width = '8px';
         cursor.style.height = '8px';
         ring.style.width = '32px';
         ring.style.height = '32px';
-        ring.style.borderColor = 'rgba(255, 77, 28, 0.4)';
+        ring.style.borderColor = 'var(--accent-glow)';
       });
     });
   }

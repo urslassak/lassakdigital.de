@@ -51,13 +51,13 @@ Die Website ist als performante, statische Landingpage konzipiert und verwendet 
 
 ## 2. Design-System & Typografie
 
-Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es implementiert ein hochwertiges, kaufmännisch-seriöses Dark-Theme mit neonfarbenen Highlights.
+Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es implementiert ein hochwertiges, kaufmännisch-seriöses Dark-Theme ("Deep Tech & Trust") mit kühlem Nachtblau, Marineblau und leuchtenden Cyber-Cyan-Akzenten.
 
 ### Farbpalette
-- **Hintergrund**: `--bg-primary` (`#0a0a0c`) sorgt für ein tiefes, modernes Schwarz.
-- **Card-Hintergründe**: `--bg-secondary` (`#121216`) heben Inhaltsbereiche durch leichte Kontraste und transluzente Ränder ab.
-- **Textfarben**: `--text-primary` (`#ffffff`) für eine klare Hierarchie der Überschriften; `--text-secondary` (`#a0a0a5`) für angenehm lesbaren Fließtext.
-- **Akzente**: Neon-Coral/Orange (`--accent`: `#ff4d1c`) dient als primärer Interaktions-Indikator (Hover-States, Custom Cursor).
+- **Hintergrund**: `--bg-primary` (`#040d1a`) sorgt für ein tiefes, nachtblaues Fundament.
+- **Card- und Hilfshintergründe**: `--bg-secondary` (`#0b172a`) heben Inhaltsbereiche durch ein dunkleres Marineblau ab.
+- **Textfarben**: `--text-primary` (`#ffffff`) für eine klare Hierarchie der Überschriften in reinem Weiß; `--text-secondary` (`#94a3b8`) für angenehm lesbaren, hell-blaugrauen Fließtext.
+- **Akzente**: Cyber-Cyan / Neon-Hellblau (`--accent`: `#00e5ff`) dient als primärer Interaktions-Indikator, mit dunklerem Cyan (`--accent-hover`: `#00b8cc`) für Button-Hovers und einem transluzenten Cyber-Cyan (`--accent-glow`: `rgba(0, 229, 255, 0.4)`) für weiche Glühschatten.
 
 ### Typografie
 - Die gesamte Website verwendet die Schriftart **Inter** (lokal gehostet zur DSGVO-Konformität).
@@ -71,7 +71,7 @@ Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es i
 Auf Desktop-Geräten (gefiltert via `@media (pointer: fine)`) wird der Standard-Mauszeiger des Systems ausgeblendet (`cursor: none`) und durch zwei CSS-Elemente ersetzt:
 - **Dot Cursor (`.cursor`)**: Folgt den Mauskoordinaten ohne Verzögerung.
 - **Ring Cursor (`.cursor-ring`)**: Folgt der Mausposition verzögert über einen Easing-Algorithmus in JS (`rx += (mx - rx) * 0.15`), was eine flüssige Bewegung erzeugt.
-- **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem intensiveren Neon-Orange (`rgba(255, 77, 28, 0.7)`).
+- **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem leuchtenden Cyber-Cyan (`rgba(0, 229, 255, 0.7)`).
 
 ### Scroll-Reveal-Animation
 Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: translateY(30px)`). 
@@ -83,7 +83,7 @@ Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: t
 Am unteren Rand des Hero-Bereichs (Above the Fold) befindet sich ein nach unten zeigender Interaktions-Pfeil (`.hero-scroll-btn`).
 - **Animation**: Der Pfeil führt eine kontinuierliche, vertikale Schweb-Animation (`arrowBounce`) via CSS `@keyframes` aus (`translateY(0)` bis `translateY(10px)`).
 - **Smooth Scroll**: Beim Klick auf den Pfeil scrollt die Seite mittels nativem CSS-Verhalten (`scroll-behavior: smooth`) sanft zur nachfolgenden Sektion (`#approach`).
-- **Custom Cursor Integration**: Da der Pfeil als `<a>`-Link implementiert ist, greift die Hover-Erkennung des dynamischen Cursors. Bei Mausberührung skaliert der `.cursor-ring` auf 48px und färbt sich neon-orange (`rgba(255, 77, 28, 0.7)`).
+- **Custom Cursor Integration**: Da der Pfeil als `<a>`-Link implementiert ist, greift die Hover-Erkennung des dynamischen Cursors. Bei Mausberührung skaliert der `.cursor-ring` auf 48px und färbt sich cyber-cyan (`rgba(0, 229, 255, 0.7)`).
 
 ---
 

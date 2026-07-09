@@ -7,12 +7,13 @@
 
 ## Design System (style.css)
 - Dark Theme:
-  - `--bg-primary: #0a0a0c;` (Body bg)
-  - `--bg-secondary: #121216;` (Card bg)
-  - `--text-primary: #ffffff;` (Headers)
-  - `--text-secondary: #a0a0a5;` (Muted copy)
-  - `--accent: #ff4d1c;` (Neon orange accents)
-  - `--accent-dim: rgba(255, 77, 28, 0.15);`
+  - `--bg-primary: #040d1a;` (Body bg, Nachtblau)
+  - `--bg-secondary: #0b172a;` (Card bg/Marineblau)
+  - `--text-primary: #ffffff;` (Headers, Klares Weiß)
+  - `--text-secondary: #94a3b8;` (Fließtexte, Helles Blaugrau)
+  - `--accent: #00e5ff;` (Cyber-Cyan / Neon-Hellblau)
+  - `--accent-hover: #00b8cc;` (Dunkleres Cyan)
+  - `--accent-glow: rgba(0, 229, 255, 0.4);`
   - `--border-color: rgba(255, 255, 255, 0.08);`
   - `--font-display: 'Inter', sans-serif;`
   - `--font-body: 'Inter', sans-serif;`

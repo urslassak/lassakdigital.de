@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.12.0] - 2026-07-10
+
+### Changed
+- Verbessertes Kontrastverhältnis des "Jetzt anfragen" Call-to-Action Buttons im Navigations-Header (Wechsel der Textfarbe von Weiß zu Nachtblau `var(--bg-primary)` in normalem und Hover-Zustand), um optimale Lesbarkeit auf hellem Cyber-Cyan-Hintergrund zu gewährleisten.
+
+## [1.11.0] - 2026-07-09
+
+### Added
+- Added custom CSS styles in `style.css` for `.legal-container` and its children (headers, typography, paragraphs, lists, links, back buttons) to style the legal pages consistently under the website's dark theme design system.
+- Added new sections to `datenschutz.html` for "SSL- bzw. TLS-Verschlüsselung" and "Cookies" to clearly declare SSL usage for secure form data transmission and the complete absence of tracking cookies or pixels.
+
+### Changed
+- Updated the location/residence of Urs Lassak from "Tettnang" to "Meckenbeuren" in `impressum.html`, `datenschutz.html`, and `index.html`.
+- Updated the GPS coordinates on the landing page (`index.html`) JSON-LD structured data block to Meckenbeuren coordinates (Latitude: `47.7011`, Longitude: `9.5638`).
+- Updated the legal basis in `impressum.html` from "§ 5 TMG" to the current "§ 5 DDG" (Digitale-Dienste-Gesetz).
+- Corrected the Google Fonts declaration in `datenschutz.html` to state that fonts are hosted locally and no user data (e.g., IP address) is transmitted to Google.
+- Cleaned up obsolete inline color styles on links in `impressum.html`.
+
+### Removed
+- Removed the outdated "Terminbuchung über Calendly" section in `datenschutz.html`, since the Calendly integration was deleted in a previous version.
+
+## [1.10.0] - 2026-07-09
+
+### Changed
+- Switched the website design system theme from Light-Theme back to a modern Dark-Theme ("Deep Tech & Trust"), updating `:root` variables in `style.css` (Nachtblau background `#040d1a`, Marineblau backgrounds `#0b172a`, pure white headers `#ffffff`, and light-blaugrau text `#94a3b8`).
+- Set Cyber-Cyan (`#00e5ff`) as the primary accent color, with dark cyan (`#00b8cc`) for button hovers and `--accent-glow` (`rgba(0, 229, 255, 0.4)`).
+- Restored the white SVG logo `logo_lassakdigital-white.svg` in `index.html`, `impressum.html`, and `datenschutz.html` to be fully readable against the night-blue background.
+- Fixed readability and contrast by forcing dark-theme background colors (`var(--bg-primary)`) on text elements filled with cyan on hover (primary button text and timeline step circles).
+- Updated the custom cursor (`.cursor-ring`) hover state transition behavior to shift from cyber-cyan (`rgba(0, 229, 255, 0.7)`) to standard translucency (`var(--accent-glow)`).
+- Aligned documentation files (`docs/architecture.md` and `AGENTS.md`) with the new Nachtblau/Cyber-Cyan theme properties.
+
+## [1.9.0] - 2026-07-09
+
+### Changed
+- Switched the entire website design system theme from Dark-Theme to Light-Theme, changing `:root` variables in `style.css` (White background `#ffffff`, Light-Grey backgrounds `#f7f7f9`, Deep Black headings `#111111`, and Medium-Grey body text `#5a5a60`).
+- Replaced the primary accent color from Neon-Orange (`#ff4d1c`) to Metallic Gold (`#d4af37`), adding `--accent-hover` (`#b5952f`) and `--accent-glow` (`rgba(212, 175, 55, 0.4)`).
+- Replaced the SVG logo source path from `logo_lassakdigital-white.svg` to the black variant `logo_lassakdigital-black.svg` in `index.html`, `impressum.html`, and `datenschutz.html` to ensure visibility against the new white background.
+- Updated the custom cursor (`.cursor-ring`) hover state transition behavior to shift from translucent gold (`rgba(212, 175, 55, 0.7)`) to standard translucency (`var(--accent-glow)`) instead of neon orange.
+- Updated button hover styles to utilize `var(--accent-hover)` and gold accent glow shadows.
+- Aligned documentation files (`docs/architecture.md` and `AGENTS.md`) with the new light/gold theme values.
+
+## [1.8.0] - 2026-07-09
+
+### Added
+- Formspree privacy section added to `datenschutz.html` explaining the data processing flow and USA data transfer compliance.
+
+### Changed
+- Aligned step 7 ("Das persönliche Gespräch & Sicheres Wachstum") in the workflow timeline (`index.html`) to follow the exact same HTML structure as steps 1-6 using the full copy from `Module.md`. Fixed HTML closing tags for the timeline (`</ol>`).
+- Removed specific CSS exception rule `.timeline-step:last-child` from `style.css` so step 7 adapts standard timeline styles automatically.
+- Updated `docs/DEPENDENCIES.md` and `docs/API-SURFACE.md` with explicit DSGVO assessments and direct-browser data flow details for Formspree.
+
 ## [1.7.0] - 2026-07-09
 
 ### Changed

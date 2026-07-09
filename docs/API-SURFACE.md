@@ -17,7 +17,7 @@ Die Schnittstellen gliedern sich in drei Kategorien:
 
 | Schnittstelle / Typ | Ziel-URL / Protokoll | Zweck | Authentifizierung | Eingabe-Validierung |
 | :--- | :--- | :--- | :--- | :--- |
-| **Formspree Callback** (AJAX Formular) | `https://formspree.io/f/xeebyjww` | Empfang und Weiterleitung von Rückrufanfragen über das Kontaktformular. | Token in der Ziel-URL. | Keine Pflichtfelder (optionale Angabe von Name, E-Mail und Telefonnummer). |
+| **Formspree Callback** (AJAX Formular) | `formspree.io` | Empfang und Weiterleitung von Rückrufanfragen über das Kontaktformular. | Token im POST-URL | Keine required-Felder |
 | **WhatsApp Chat** (API Link) | `https://wa.me/4917621359713` | Weiterleitung zu einem direkten Chat mit Urs Lassak auf WhatsApp. | Keine. | Keine Eingabefelder auf der Website (wird an WhatsApp übergeben). |
 | **E-Mail Link** (Protokoll) | `mailto:urs@lassakdigital.de` | Öffnet das standardmäßige E-Mail-Programm des Besuchers. | Keine. | Wird durch den E-Mail-Client des Nutzers validiert. |
 
@@ -27,7 +27,7 @@ Die Schnittstellen gliedern sich in drei Kategorien:
 
 Alle externen API-Aufrufe werden direkt vom Webbrowser des Nutzers ausgeführt.
 
-- **Formspree**: Die im Rückruf-Formular eingegebenen Kontaktdaten (Name, E-Mail, Telefon) werden beim Klick auf Absenden direkt per HTTPS-POST-Request vom Browser des Nutzers an Formspree übertragen. Es findet keine Verarbeitung auf einem eigenen Webserver statt.
+- **Formspree-Datenfluss**: Der Datenfluss bei der Formularnutzung erfolgt direkt durch den Browser des Nutzers. Sobald der Nutzer das Formular absendet, initiiert sein Browser einen direkten HTTPS-POST-Request an die Server von Formspree (formspree.io). Die eingegebenen Daten (Name, E-Mail, Telefon) gelangen so verschlüsselt direkt an Formspree (Formspree, Inc., USA) und werden von dort an uns weitergeleitet. Es findet zu keinem Zeitpunkt eine Speicherung oder Verarbeitung dieser Daten auf dem eigenen Webserver von `lassakdigital.de` statt.
 
 > [!TIP]
 > **Datenschutzfreundliche Einbindung**: Das Google Fonts CDN wird nicht mehr kontaktiert, da die Schriften lokal auf dem Server liegen.

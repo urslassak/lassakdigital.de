@@ -20,11 +20,11 @@ Diese Dienste werden zur Laufzeit direkt über CDNs (Content Delivery Networks) 
 - **Anbieter**: Google Ireland Limited / Google LLC.
 - **DSGVO-Bewertung**: **Sicher**. Da alle Schriftdateien direkt vom eigenen Webserver ausgeliefert werden, erfolgt keine Datenübertragung zu Google-Servern.
 
-### Formspree (AJAX API) [DIREKT-VERSAND]
-- **Zweck**: Verarbeitung und Weiterleitung von Rückrufanfragen des Kontaktformulars.
-- **Einbindung**: Clientseitiger HTTPS-POST-Request via `fetch()`-API beim Absenden des Callback-Formulars an `https://formspree.io/f/xeebyjww`.
-- **Anbieter**: Formspree, Inc.
-- **DSGVO-Bewertung**: **Relevant**. Personenbezogene Daten (Name, E-Mail, Telefon) werden bei Nutzung direkt vom Client an Server von Formspree in den USA übermittelt. Da dies durch eine bewusste Aktion des Nutzers geschieht (Opt-in durch Klick auf "Rückrufbitte"), ist die Einbindung bei entsprechender Datenschutzerklärung konform.
+### Formspree (AJAX API)
+- **Zweck**: Rückruf-Kontaktformular.
+- **Einbindung**: direkter POST-Request (HTTPS-POST via `fetch()` an `https://formspree.io/f/xeebyjww`).
+- **Anbieter**: Formspree (Formspree, Inc.).
+- **DSGVO-Bewertung**: Datenübermittlung erfolgt direkt durch den Browser des Nutzers an die Formspree-Server. Die eingegebenen personenbezogenen Daten (Name, E-Mail, Telefon) werden verschlüsselt an Server von Formspree in den USA übermittelt, ohne Zwischenverarbeitung auf dem eigenen Webserver.
 
 ---
 
