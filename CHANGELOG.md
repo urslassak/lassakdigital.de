@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2026-07-09
+
+### Added
+- Added `.gitignore` to exclude system files (`.DS_Store`), IDE settings, and log files.
+- Staged all favicon and logo SVG files in Git so they are correctly deployed to GitHub Pages and visible on the live site.
+
+### Changed
+- Configured favicon references (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`, `apple-touch-icon.png`) and the webmanifest (`site.webmanifest`) in all HTML files to use relative paths instead of absolute paths, ensuring consistent loading across environments.
+- Adjusted paths inside `site.webmanifest` to be relative as well.
+
 ## [1.4.0] - 2026-07-09
 
 ### Added

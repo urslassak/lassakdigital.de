@@ -2,6 +2,15 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.8.0-assets-gitignore] — 2026-07-09
+
+### Behebung der fehlenden Favicons/Logos & Hinzufügen von .gitignore
+- **AG-01** ✅ **Hinzufügen von `.gitignore` & Bereinigung Git-Cache** (`.gitignore`): Ausschluss von `.DS_Store`, Editor-Konfigurationen (`.vscode/`, `.idea/`) und temporären Logdateien. Entfernung der bereits getrackten `.DS_Store`-Datei aus dem Git-Index (`git rm --cached`).
+- **AG-02** ✅ **Relative Pfade für Favicons & Webmanifest** (`index.html`, `datenschutz.html`, `impressum.html`, `site.webmanifest`): Behebung von Ladeproblemen und 404-Fehlern durch Umstellung der absoluten Pfade (`/favicon.ico`, `/site.webmanifest`, etc.) auf relative Pfade (`favicon.ico`, `site.webmanifest`, etc.).
+- **AG-03** ✅ **Staging von fehlenden Assets für Live-Gang** (`favicon.ico`, `favicon.svg`, `favicon-96x96.png`, `apple-touch-icon.png`, `web-app-manifest-192x192.png`, `web-app-manifest-512x512.png`, `logo.png`, `images/logo_lassakdigital-white.svg`, `images/logo_lassakdigital-black.svg`): Hinzufügen aller bisher unversionierten Bild- und Icon-Ressourcen in den Git-Index, damit diese beim nächsten Push auf GitHub Pages online verfügbar sind.
+
+---
+
 ## [1.7.0-seo-optimization] — 2026-07-09
 
 ### SEO-Check und On-Page-Optimierung
