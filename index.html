@@ -328,9 +328,14 @@
       <div class="contact-content reveal">
         <!-- Calendly widget container -->
         <div class="calendly-container">
-          <iframe src="https://calendly.com/urs-lassakdigital/new-meeting"
-            style="width: 100%; height: 600px; border: 0;" frameborder="0">
-          </iframe>
+          <div class="calendly-placeholder" id="calendlyPlaceholder">
+            <div class="calendly-placeholder-icon">📅</div>
+            <h3 class="calendly-placeholder-title">Kostenfreie Potenzialanalyse buchen</h3>
+            <p class="calendly-placeholder-text">
+              Mit dem Klick auf "Kalender laden" wird der externe Buchungskalender von Calendly geladen. Dabei werden personenbezogene Daten an Calendly übertragen. Weitere Details finden Sie in unserer Datenschutzerklärung.
+            </p>
+            <button class="btn-primary" id="loadCalendlyBtn">Kalender laden</button>
+          </div>
         </div>
 
         <!-- Direct contact details -->

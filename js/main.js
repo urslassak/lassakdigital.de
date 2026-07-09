@@ -96,4 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reveals.forEach(r => observer.observe(r));
   }
+
+  // 4. Calendly Two-Click Consent Loader
+  const loadBtn = document.getElementById('loadCalendlyBtn');
+  const placeholder = document.getElementById('calendlyPlaceholder');
+  if (loadBtn && placeholder) {
+    loadBtn.addEventListener('click', () => {
+      const container = placeholder.parentElement;
+      container.innerHTML = `
+        <iframe src="https://calendly.com/urs-lassakdigital/new-meeting"
+          style="width: 100%; height: 600px; border: 0;" frameborder="0">
+        </iframe>
+      `;
+    });
+  }
 });
