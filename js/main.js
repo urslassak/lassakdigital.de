@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animRing();
 
     // Cursor hover effects on interactive elements
-    const hoverables = document.querySelectorAll('a, button, iframe, .nav-toggle, .variant-card');
+    const hoverables = document.querySelectorAll('a, button, iframe, .nav-toggle, .workflow-card, .process-card');
     hoverables.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width = '14px';

@@ -79,6 +79,12 @@ Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: t
 - Sobald ein Element zu 10 % sichtbar ist, erhält es die Klasse `.visible`, was eine sanfte CSS-Transition triggert.
 - Transition-Timing: `cubic-bezier(0.16, 1, 0.3, 1)` (für einen elastischen Übergang).
 
+### Scroll-Down-Pfeil-Animation
+Am unteren Rand des Hero-Bereichs (Above the Fold) befindet sich ein nach unten zeigender Interaktions-Pfeil (`.hero-scroll-btn`).
+- **Animation**: Der Pfeil führt eine kontinuierliche, vertikale Schweb-Animation (`arrowBounce`) via CSS `@keyframes` aus (`translateY(0)` bis `translateY(10px)`).
+- **Smooth Scroll**: Beim Klick auf den Pfeil scrollt die Seite mittels nativem CSS-Verhalten (`scroll-behavior: smooth`) sanft zur nachfolgenden Sektion (`#approach`).
+- **Custom Cursor Integration**: Da der Pfeil als `<a>`-Link implementiert ist, greift die Hover-Erkennung des dynamischen Cursors. Bei Mausberührung skaliert der `.cursor-ring` auf 48px und färbt sich neon-orange (`rgba(255, 77, 28, 0.7)`).
+
 ---
 
 ## 4. Navigations-System & Diskrepanzen
@@ -93,7 +99,7 @@ In früheren Versionen der Dokumentation (`architecture.md`) und im `CHANGELOG.m
 
 **Ist-Zustand des Codes**:
 - Es sind **keine** Dropdown-Menüs im HTML (`index.html`) oder CSS (`style.css`) implementiert.
-- Die Navigation besteht ausschließlich aus flachen Anker-Links (`#about`, `#variants`, `#contact`).
+- Die Navigation besteht ausschließlich aus flachen Anker-Links (`#approach`, `#workflow`, `#contact`).
 - Die Dokumentation der Dropdown-Mechaniken entspricht einem geplanten Zustand, der im Code (noch) nicht existiert.
 
 ---
