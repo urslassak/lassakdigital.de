@@ -2,9 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.13.0] - 2026-07-10
+
+### Added
+- CSS-basiertes durchlaufendes Text-Banner (Infinite Marquee) als visuelle, freischwebende Abtrennung direkt über dem Rückruf-Kontaktformular (`#callback-form`) in `index.html`.
+- Styling-Klassen `.priority-banner`, `.priority-headline`, `.marquee`, `.marquee-content` und `.marquee-separator` in `style.css` sowie die Keyframe-Animation `marquee-scroll` für einen nahtlosen, endlosen Loop.
+
 ## [1.12.0] - 2026-07-10
 
+### Added
+- Einführung der Klasse `.workflow-target-label` in `index.html` und `style.css` für ein dezenteres, minimalistisches Styling der Zielgruppen-Definitionen ("Ideal wenn..." / "Ideal als...") direkt unter der Überschrift der 7 Modul-Karten im Workflow-Bereich (über dem Fließtext).
+
 ### Changed
+- Implementierung eines modernen "Frosted Glass" (Glassmorphismus) Effekts für den Desktop-Header (`nav`) in `style.css` unter Verwendung einer leicht transparenten nachtblauen Hintergrundfarbe (`rgba(4, 13, 26, 0.85)` basierend auf `#040d1a`), eines Weichzeichner-Hintergrundeffekts (`backdrop-filter: blur(12px)`) und eines extrem subtilen unteren Rahmens (`border-bottom: 1px solid rgba(255, 255, 255, 0.05)`), um einen fließenden Übergang zum scrollenden Inhalt zu gewährleisten.
 - Verbessertes Kontrastverhältnis des "Jetzt anfragen" Call-to-Action Buttons im Navigations-Header (Wechsel der Textfarbe von Weiß zu Nachtblau `var(--bg-primary)` in normalem und Hover-Zustand), um optimale Lesbarkeit auf hellem Cyber-Cyan-Hintergrund zu gewährleisten.
 
 ## [1.11.0] - 2026-07-09

@@ -2,6 +2,34 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.18.0-priority-banner] — 2026-07-10
+
+### CSS-basiertes durchlaufendes Text-Banner (Infinite Marquee)
+- **IM-01** ✅ **HTML-Struktur Priority Banner** (`index.html`): Einfügen des neuen Containers `<div class="priority-banner reveal">` unmittelbar vor der Rückruf-Sektion (`#callback-form`). Ergänzung der Überschrift `<p class="priority-headline">` und der `.marquee`/`.marquee-content`-Elemente mit dem doppelt hinterlegten Textblock für den nahtlosen Loop.
+- **IM-02** ✅ **CSS-Marquee-Styling & Keyframe-Animation** (`style.css`): Implementierung der CSS-Klassen für Layout, Schriftgrößen, Cyber-Cyan-Färbung und zentrierte Darstellung des Banners. Hinzufügen der `@keyframes marquee-scroll` zur Animation der Transformation (`translateX(-50%)`) sowie eines Premium-Glows auf den Trennstrichen und eines horizontalen Weichzeichners (`mask-image` / `-webkit-mask-image`) an den Bildschirmrändern.
+- **IM-03** ✅ **Changelog-Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Erfassung der Implementierung im zentralen Projekthandbuch und in der KI-Änderungshistorie.
+
+---
+
+## [1.17.0-frosted-glass-header] — 2026-07-10
+
+### Frosted Glass Header-Styling (Glassmorphismus)
+- **FG-01** ✅ **Frosted Glass Styling** (`style.css`): Überarbeitung der Navigation (`nav`) und der zugehörigen Desktop-Medienabfrage `@media (min-width: 1024px)`. Ersetzung des vorherigen, fast soliden dunklen Hintergrunds durch eine transparente nachtblaue Hintergrundfarbe (`rgba(4, 13, 26, 0.85)` basierend auf `#040d1a`).
+- **FG-02** ✅ **Hintergrund-Weichzeichner (Blur)** (`style.css`): Implementierung von `backdrop-filter: blur(12px)` (und `-webkit-backdrop-filter` für Safari-Kompatibilität) zur Realisierung des Weichzeichnereffekts bei darüber-scrollendem Inhalt.
+- **FG-03** ✅ **Subtiler unterer Rahmen & Positionierung** (`style.css`): Hinzufügen eines extrem feinen unteren Rahmens (`border-bottom: 1px solid rgba(255, 255, 255, 0.05)`) für eine weichere Abgrenzung sowie Beibehaltung der sticky/fixed Positionierung mit ausreichendem Ebenen-Index (`z-index: 1000`).
+- **FG-04** ✅ **Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Erfassung aller durchgeführten CSS-Arbeiten in den Changelogs.
+
+---
+
+## [1.16.0-workflow-labels] — 2026-07-10
+
+### Dezentes Label-Styling für "Ideal wenn"-Hinweise im Workflow
+- **WL-01** ✅ **HTML-Anpassung Workflow-Karten** (`index.html`): Umschließen der Zielgruppen-Definitionen ("Ideal wenn..." / "Ideal als...") in allen 7 `.workflow-card` Elementen der Timeline mit der neuen Klasse `.workflow-target-label`. Platzierung dieser spezifischen Tags direkt unter dem Titel (`h3`) und über dem Fließtext (`p.workflow-desc`).
+- **WL-02** ✅ **Minimalist-Tech-Tag Styling** (`style.css`): Entfernung der alten `.workflow-target` Definitionen und Hinzufügen der neuen Klasse `.workflow-target-label`. Umsetzung als minimalistisches Tag im Hintergrund mit `font-size: 0.75rem`, `text-transform: uppercase`, `letter-spacing: 0.05em`, blaugrauer Textfarbe (`var(--text-secondary)`), einem dezenten linken Rand (`border-left: 2px solid rgba(148, 163, 184, 0.3)`) und `margin-bottom: 1.25rem` zur klaren Abgrenzung vom folgenden Fließtext.
+- **WL-03** ✅ **Changelogs & Fortschrittsdokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Erfassung der neuen Strukturierung und CSS-Einführung in den Changelogs.
+
+---
+
 ## [1.15.0-contrast-fix-nav-cta] — 2026-07-10
 
 ### Kontrast-Fix für den Header-Button
