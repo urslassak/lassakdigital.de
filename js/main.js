@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animRing();
 
     // Cursor hover effects on interactive elements
-    const hoverables = document.querySelectorAll('a, button, iframe, .nav-toggle, .workflow-card, .process-card');
+    const hoverables = document.querySelectorAll('a, button, iframe, input, .nav-toggle, .workflow-card, .process-card');
     hoverables.forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.width = '14px';
@@ -97,17 +97,40 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(r => observer.observe(r));
   }
 
-  // 4. Calendly Two-Click Consent Loader
-  const loadBtn = document.getElementById('loadCalendlyBtn');
-  const placeholder = document.getElementById('calendlyPlaceholder');
-  if (loadBtn && placeholder) {
-    loadBtn.addEventListener('click', () => {
-      const container = placeholder.parentElement;
-      container.innerHTML = `
-        <iframe src="https://calendly.com/urs-lassakdigital/new-meeting"
-          style="width: 100%; height: 600px; border: 0;" frameborder="0">
-        </iframe>
-      `;
+  // 4. Formspree Callback Form Handling
+  const callbackForm = document.getElementById('formspree-callback');
+  const formSuccess = document.getElementById('form-success');
+
+  if (callbackForm && formSuccess) {
+    callbackForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(callbackForm);
+
+      try {
+        const response = await fetch(callbackForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Fade out the form
+          callbackForm.style.opacity = '0';
+          callbackForm.style.transform = 'translateY(-10px)';
+
+          setTimeout(() => {
+            callbackForm.style.display = 'none';
+            formSuccess.style.display = 'flex';
+          }, 300); // Matches --transition-smooth (0.3s)
+        } else {
+          alert('Ups! Es gab ein Problem beim Absenden des Formulars. Bitte versuche es erneut.');
+        }
+      } catch (error) {
+        alert('Ups! Es gab ein Problem beim Absenden des Formulars. Bitte überprüfe Deine Internetverbindung.');
+      }
     });
   }
 });

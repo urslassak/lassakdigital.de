@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2026-07-09
+
+### Changed
+- Relocated the "Direkter Draht" direct contact card (WhatsApp & E-Mail) to be centered directly below the callback form ("Rückrufbitte") as the final element of the page.
+- Updated styling rules for the contact section in `style.css` to center the contact card and remove all unused Calendly CSS rules.
+- Cleaned up the navigation bar links in `index.html` to point to the callback form (`#callback-form`) and renamed the "Vorab-Check" link to "Kontakt".
+- Removed the unused Calendly click listener from `js/main.js`.
+- Updated all related technical documents (`docs/architecture.md`, `docs/DECISIONS.md`, `docs/DATA-MODEL.md`, `docs/DEPENDENCIES.md`, `docs/API-SURFACE.md`, `docs/GLOSSARY.md`) to mark the Calendly decision as obsolete and remove its references.
+
+### Removed
+- Removed the bottom section "Starten Sie jetzt - Machen wir den Vorab-Check für Ihr Geschäft" and the two-click Calendly widget placeholder.
+
+## [1.6.0] - 2026-07-09
+
+### Added
+- Integrated a new callback form (`#callback-form`, `.callback-section`) in `index.html` linked to Formspree (`https://formspree.io/f/xeebyjww`) allowing visitors to leave contact information (name, email, phone) without required field restrictions.
+- Added input fields hover logic to custom cursor to support scaling and orange-accent transitions.
+- Added CSS styles in `style.css` matching the dark theme for the callback section, inputs (focus highlight with `--accent` and `--accent-dim`), and success layout.
+
+### Changed
+- Implemented AJAX fetch submission logic in `js/main.js` to catch form submissions, submit securely to Formspree, and transition smoothly (fade out form, fade in success message).
+
 ## [1.5.0] - 2026-07-09
 
 ### Added

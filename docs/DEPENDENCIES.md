@@ -20,11 +20,11 @@ Diese Dienste werden zur Laufzeit direkt über CDNs (Content Delivery Networks) 
 - **Anbieter**: Google Ireland Limited / Google LLC.
 - **DSGVO-Bewertung**: **Sicher**. Da alle Schriftdateien direkt vom eigenen Webserver ausgeliefert werden, erfolgt keine Datenübertragung zu Google-Servern.
 
-### Calendly Widget (Iframe) [ZWEI-KLICK-KONSENT]
-- **Zweck**: Interaktiver Buchungskalender für Erstgespräche.
-- **Einbindung**: Dynamisch erzeugtes `<iframe>` in `index.html` nach explizitem Klick des Nutzers auf "Kalender laden".
-- **Anbieter**: Calendly LLC.
-- **DSGVO-Bewertung**: **Sicher**. Es werden erst nach vorheriger Interaktion (Einwilligung durch Klick) Daten an Server von Calendly übertragen. Der Page-Load selbst bleibt datenschutzkonform.
+### Formspree (AJAX API) [DIREKT-VERSAND]
+- **Zweck**: Verarbeitung und Weiterleitung von Rückrufanfragen des Kontaktformulars.
+- **Einbindung**: Clientseitiger HTTPS-POST-Request via `fetch()`-API beim Absenden des Callback-Formulars an `https://formspree.io/f/xeebyjww`.
+- **Anbieter**: Formspree, Inc.
+- **DSGVO-Bewertung**: **Relevant**. Personenbezogene Daten (Name, E-Mail, Telefon) werden bei Nutzung direkt vom Client an Server von Formspree in den USA übermittelt. Da dies durch eine bewusste Aktion des Nutzers geschieht (Opt-in durch Klick auf "Rückrufbitte"), ist die Einbindung bei entsprechender Datenschutzerklärung konform.
 
 ---
 

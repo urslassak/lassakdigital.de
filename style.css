@@ -838,80 +838,28 @@ nav {
 }
 
 /* --------------------------------------------------------------------------
-   Contact Section
+   Contact Section (Direkter Draht)
    -------------------------------------------------------------------------- */
-.contact-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+.contact {
+  padding-top: 20px;
 }
 
-.contact-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.contact-header .section-sub {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.contact-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-@media (min-width: 1024px) {
-  .contact-content {
-    grid-template-columns: 1.4fr 1fr;
-    gap: 60px;
+@media (min-width: 768px) {
+  .contact {
+    padding-top: 30px;
   }
 }
 
-.calendly-container {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow-main);
+@media (min-width: 1024px) {
+  .contact {
+    padding-top: 40px;
+  }
 }
 
-.calendly-placeholder {
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
   width: 100%;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  text-align: center;
-  background-color: var(--bg-secondary);
-}
-
-.calendly-placeholder-icon {
-  font-size: 2.8rem;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
-
-.calendly-placeholder-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--text-primary);
-}
-
-.calendly-placeholder-text {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  max-width: 380px;
-  line-height: 1.6;
-  margin-bottom: 28px;
 }
 
 .contact-sidebar {
@@ -991,6 +939,114 @@ nav {
 
 .contact-footer-logo img:hover {
   opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   Callback Form Section
+   -------------------------------------------------------------------------- */
+.callback-section {
+  position: relative;
+}
+
+.callback-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.callback-header {
+  text-align: center;
+}
+
+.callback-header .section-sub {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.callback-content {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-main);
+  position: relative;
+  transition: all var(--transition-smooth);
+}
+
+#formspree-callback {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.form-group input {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.form-group input:focus + label,
+.form-group:focus-within label {
+  color: var(--accent);
+}
+
+#formspree-callback button[type="submit"] {
+  margin-top: 12px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  animation: formSuccessFadeIn 0.5s var(--transition-smooth) forwards;
+}
+
+@keyframes formSuccessFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --------------------------------------------------------------------------

@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Urs Lassak — Messbare Neukundengewinnung für Unternehmen in der Bodensee-Region</title>
-  <meta name="description" content="Urs Lassak (Lassak Digital): Professionelle Neukundengewinnung &amp; Social Ads (Facebook, Instagram, TikTok) für Unternehmen in der Bodensee-Region. Jetzt Vorab-Check anfordern!">
+  <meta name="description"
+    content="Urs Lassak (Lassak Digital): Professionelle Neukundengewinnung &amp; Social Ads (Facebook, Instagram, TikTok) für Unternehmen in der Bodensee-Region. Jetzt Vorab-Check anfordern!">
   <link rel="canonical" href="https://www.lassakdigital.de/">
   <meta name="robots" content="index, follow">
 
@@ -13,7 +14,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.lassakdigital.de/">
   <meta property="og:title" content="Urs Lassak — Messbare Neukundengewinnung für Unternehmen in der Bodensee-Region">
-  <meta property="og:description" content="Bezahlte Werbung auf Facebook, Instagram und TikTok für Unternehmen in der Bodensee-Region. Pragmatisch und zielorientiert umgesetzt.">
+  <meta property="og:description"
+    content="Bezahlte Werbung auf Facebook, Instagram und TikTok für Unternehmen in der Bodensee-Region. Pragmatisch und zielorientiert umgesetzt.">
   <meta property="og:image" content="https://www.lassakdigital.de/logo.png">
   <meta property="og:locale" content="de_DE">
   <meta property="og:site_name" content="Lassak Digital">
@@ -22,7 +24,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.lassakdigital.de/">
   <meta name="twitter:title" content="Urs Lassak — Messbare Neukundengewinnung für Unternehmen in der Bodensee-Region">
-  <meta name="twitter:description" content="Bezahlte Werbung auf Facebook, Instagram und TikTok für Unternehmen in der Bodensee-Region. Pragmatisch und zielorientiert umgesetzt.">
+  <meta name="twitter:description"
+    content="Bezahlte Werbung auf Facebook, Instagram und TikTok für Unternehmen in der Bodensee-Region. Pragmatisch und zielorientiert umgesetzt.">
   <meta name="twitter:image" content="https://www.lassakdigital.de/logo.png">
 
   <!-- Structured Data (JSON-LD) -->
@@ -88,8 +91,8 @@
     <ul class="nav-menu">
       <li><a href="#approach">Mein Ansatz</a></li>
       <li><a href="#workflow">Ablauf</a></li>
-      <li><a href="#contact">Vorab-Check</a></li>
-      <li><a href="#contact" class="btn-primary nav-cta">Jetzt anfragen</a></li>
+      <li><a href="#callback-form">Kontakt</a></li>
+      <li><a href="#callback-form" class="btn-primary nav-cta">Jetzt anfragen</a></li>
     </ul>
   </nav>
 
@@ -287,73 +290,80 @@
           <div class="workflow-badge"></div>
           <h3 class="workflow-title">Zukünftige Planung</h3>
           <div class="workflow-target">
-            <span>Ideal, wenn</span> du mit mir die nächsten Schritte für dein Geschäft planen möchtest.
+            <p>
+              Sie erhalten transparente Berichte darüber, was Ihre Investition bringt.
+              Verständlich aufbereitet und ohne unverständliches Marketing-Kauderwelsch.
+            </p>
           </div>
-          <p class="workflow-desc">
-            Ich erstelle eine Auswertung der letzten Monate für dich und wir planen gemeinsam die weitere Zusammenarbeit
-            zwischen uns und die Zukunft deines Geschäfts. Sobald wir an diesem Punkt gemeinsam sehen, dass deine
-            Werbung stabil läuft und profitabel neue Kunden bringt, gehen wir den nächsten Schritt: Wir heben deine
-            Werbung auf die nächste Stufe und ziehen noch mehr planbare Aufträge an.
-          </p>
         </div>
-      </li>
+        </div>
+  </section>
 
-    </ol>
+  <!-- CALLBACK FORM SECTION -->
+  <section id="callback-form" class="callback-section reveal">
+    <div class="callback-inner">
+      <div class="callback-header">
+        <div class="section-eyebrow">Rückrufbitte</div>
+        <h2 class="section-title">Schnell &amp; unkompliziert</h2>
+        <p class="section-sub">
+          Hinterlasse mir gerne Deine E-Mail Adresse oder Telefonnummer. Ich werde mich schnellstmöglich bei Dir melden.
+        </p>
+      </div>
+
+      <div class="callback-content">
+        <form id="formspree-callback" action="https://formspree.io/f/xeebyjww" method="POST">
+          <div class="form-group">
+            <label for="callback-name">Name</label>
+            <input type="text" id="callback-name" name="name" placeholder="Dein Name">
+          </div>
+
+          <div class="form-group">
+            <label for="callback-email">E-Mail</label>
+            <input type="email" id="callback-email" name="email" placeholder="Deine E-Mail-Adresse">
+          </div>
+
+          <div class="form-group">
+            <label for="callback-phone">Telefon</label>
+            <input type="tel" id="callback-phone" name="telefon" placeholder="Deine Telefonnummer">
+          </div>
+
+          <button type="submit" class="btn-primary">Rückrufbitte</button>
+        </form>
+
+        <div id="form-success" style="display: none;">Vielen Dank! Ich werde mich in Kürze bei Dir melden.</div>
+      </div>
+    </div>
   </section>
 
   <!-- CTA & CONTACT SECTION -->
   <section class="contact" id="contact">
     <div class="contact-inner">
-      <div class="contact-header reveal">
-        <div class="section-eyebrow">Starten Sie jetzt</div>
-        <h2 class="section-title">Machen wir den Vorab-Check für Ihr Geschäft</h2>
-        <p class="section-sub">
-          Lassen Sie uns in einer kurzen, unverbindlichen Potenzialanalyse prüfen, wie wir aus Ihrem Werbebudget
-          planbare Kundenanfragen generieren. Keine Verkaufsgespräche, sondern eine ehrliche kaufmännische Einschätzung.
-        </p>
-      </div>
+      <!-- Direct contact details -->
+      <div class="contact-sidebar reveal">
+        <h3>Direkter Draht</h3>
+        <p>Sie möchten nicht warten? Kontaktieren Sie mich direkt per E-Mail oder WhatsApp für eine schnelle
+          Abstimmung.</p>
 
-      <div class="contact-content reveal">
-        <!-- Calendly widget container -->
-        <div class="calendly-container">
-          <div class="calendly-placeholder" id="calendlyPlaceholder">
-            <div class="calendly-placeholder-icon">📅</div>
-            <h3 class="calendly-placeholder-title">Kostenfreie Potenzialanalyse buchen</h3>
-            <p class="calendly-placeholder-text">
-              Mit dem Klick auf "Kalender laden" wird der externe Buchungskalender von Calendly geladen. Dabei werden
-              personenbezogene Daten an Calendly übertragen. Weitere Details finden Sie in unserer Datenschutzerklärung.
-            </p>
-            <button class="btn-primary" id="loadCalendlyBtn">Kalender laden</button>
-          </div>
+        <div class="contact-methods">
+          <a href="mailto:urs@lassakdigital.de" class="contact-method">
+            <div class="contact-method-icon">✉</div>
+            <div class="contact-method-info">
+              <div class="contact-method-label">E-Mail schreiben</div>
+              <div class="contact-method-val">urs@lassakdigital.de</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/4917621359713" class="contact-method" target="_blank">
+            <div class="contact-method-icon">💬</div>
+            <div class="contact-method-info">
+              <div class="contact-method-label">WhatsApp Chat</div>
+              <div class="contact-method-val">+49 176 21359713</div>
+            </div>
+          </a>
         </div>
 
-        <!-- Direct contact details -->
-        <div class="contact-sidebar">
-          <h3>Direkter Draht</h3>
-          <p>Sie möchten nicht warten? Kontaktieren Sie mich direkt per E-Mail oder WhatsApp für eine schnelle
-            Abstimmung.</p>
-
-          <div class="contact-methods">
-            <a href="mailto:urs@lassakdigital.de" class="contact-method">
-              <div class="contact-method-icon">✉</div>
-              <div class="contact-method-info">
-                <div class="contact-method-label">E-Mail schreiben</div>
-                <div class="contact-method-val">urs@lassakdigital.de</div>
-              </div>
-            </a>
-
-            <a href="https://wa.me/4917621359713" class="contact-method" target="_blank">
-              <div class="contact-method-icon">💬</div>
-              <div class="contact-method-info">
-                <div class="contact-method-label">WhatsApp Chat</div>
-                <div class="contact-method-val">+49 176 21359713</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="contact-footer-logo">
-            <img src="images/logo_lassakdigital-white.svg" alt="Lassak Digital Logo Footer">
-          </div>
+        <div class="contact-footer-logo">
+          <img src="images/logo_lassakdigital-white.svg" alt="Lassak Digital Logo Footer">
         </div>
       </div>
     </div>

@@ -39,9 +39,9 @@ Dieses Dokument listet wesentliche Architekturentscheidungen (Architecture Decis
 
 ## ADR 4: Terminbuchung über Calendly Iframe mit Zwei-Klick-Konsent
 
-- **Status**: Akzeptiert (Revision vom 2026-07-09 abgeschlossen)
-- **Kontext**: Die wichtigste Konvertierungsaktion der Landingpage ist das Buchen einer kostenfreien Potenzialanalyse. Zur Einhaltung der DSGVO und Verhinderung von Custom-Cursor-Freezes darf das Iframe nicht ungefragt geladen werden.
-- **Entscheidung**: Einbettung eines statischen Platzhalters für das Calendly-Iframe. Erst nach Klick des Nutzers auf "Kalender laden" wird das Iframe über JavaScript dynamisch erzeugt und gerendert.
-- **Konsequenz**:
-  - **Vorteile**: DSGVO-konforme Einbettung von Calendly, Behebung des Custom-Cursor-Einfrierens beim ersten Laden der Seite.
-  - **Nachteile**: Der Nutzer muss einen zusätzlichen Klick ausführen, um den Kalender anzuzeigen.
+- **Status**: Abgelöst / Obsolet (Revision vom 2026-07-09)
+- **Kontext**: Die wichtigste Konvertierungsaktion der Landingpage war ursprünglich das Buchen einer kostenfreien Potenzialanalyse über Calendly. Zur Einhaltung der DSGVO und Verhinderung von Custom-Cursor-Freezes durfte das Iframe nicht ungefragt geladen werden.
+- **Entscheidung**: Einbettung eines statischen Platzhalters für das Calendly-Iframe. Erst nach Klick des Nutzers auf "Kalender laden" wurde das Iframe über JavaScript dynamisch erzeugt und gerendert.
+- **Konsequenz / Aufhebung**: 
+  - **Abgelöst durch Version 1.10.0-remove-calendly (manuell v1.7.0)**: Das Calendly-Widget und die Potenzialanalyse-Sektion wurden vollständig von der Webseite entfernt. 
+  - **Neue primäre Konvertierung**: Als primäre Konvertierungsaktion dient nun die datenschutzfreundliche Rückrufbitte (Formspree AJAX Formular) kombiniert mit einer übersichtlichen, zentrierten Box für den direkten Kontakt ("Direkter Draht") per WhatsApp und E-Mail am Ende der Seite.

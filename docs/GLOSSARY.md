@@ -31,5 +31,4 @@ Ein Designmuster, bei dem Elemente beim Herunterscrollen weich in den Viewport e
 ### Mobile-First
 Ein Design- und Entwicklungsansatz, bei dem die CSS-Styles zuerst für Mobilgeräte (schmale Bildschirme) geschrieben und anschließend über CSS Media Queries sukzessive für größere Bildschirme (Tablets, Desktops) erweitert werden.
 
-### Calendly Widget
-Das eingebettete Online-Terminbuchungssystem, das Besuchern erlaubt, Termine direkt im Kalender ohne manuelle E-Mail-Absprache zu buchen.
+

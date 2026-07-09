@@ -17,12 +17,7 @@ Es gibt daher:
 
 ## 2. Externe Datenhaltung (Terminbuchungen)
 
-Obwohl die Website selbst keine Daten persistent speichert, interagiert sie mit externen Systemen, die Daten verarbeiten:
-
-### Calendly (Terminvereinbarung)
-- **Zweck**: Besucher können über das Calendly-Iframe-Widget ein Erstgespräch buchen.
-- **Gespeicherte Daten**: Vom Besucher eingegebene Daten (Name, E-Mail-Adresse, Telefonnummer, Wunschtermin, ggf. Freitext-Notizen).
-- **Speicherort**: Die Daten werden direkt an die Server von Calendly LLC übermittelt und dort in deren Infrastruktur gespeichert. Es findet keine Zwischenspeicherung oder Übertragung auf Server von Lassak Digital statt.
+Obwohl die Website selbst keine Daten persistent speichert, interagiert sie mit externen Systemen, die Daten verarbeiten (z. B. das Callback-Formular über Formspree, siehe API-Dokumentation).
 
 ---
 

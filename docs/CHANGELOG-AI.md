@@ -2,6 +2,31 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.10.0-remove-calendly] — 2026-07-09
+
+### Entfernung von Calendly und Platzierung von "Direkter Draht" am Seitenende
+- **RC-01** ✅ **Entfernung Calendly & Vorab-Check-Header** (`index.html`): Löschung des gesamten `contact-header` und des Containers für das Calendly-Zwei-Klick-Widget (`.calendly-container`) am Ende der Webseite.
+- **RC-02** ✅ **Neupositionierung und Zentrierung "Direkter Draht"** (`index.html`, `style.css`): Verschiebung der Box `.contact-sidebar` ("Direkter Draht") direkt unter das Callback-Formular als neuen finalen Seitenabschnitt. Anpassung von `.contact-inner` in `style.css` auf `max-width: 600px` und zentrierte Ausrichtung (`margin: 0 auto; width: 100%`), um bündig mit der Rückrufbitte abzuschließen. Hinzufügen der Scroll-Reveal-Klasse (`reveal`) zur Box.
+- **RC-03** ✅ **Bereinigung ungenutzter CSS-Regeln** (`style.css`): Entfernung aller Styles für `.contact-header`, `.contact-content`, `.calendly-container` und `.calendly-placeholder`.
+- **RC-04** ✅ **Navigationslinks aktualisiert** (`index.html`): Aktualisierung der Navigationslinks von `#contact` auf das Rückruf-Formular (`#callback-form`). Umbenennung des Menüpunkts "Vorab-Check" in "Kontakt".
+- **RC-05** ✅ **JavaScript-Säuberung** (`js/main.js`): Löschung des nicht mehr benötigten Event-Listeners für den Lade-Button des Calendly-Widgets.
+- **RC-06** ✅ **Bereinigung der Dokumente** (`docs/architecture.md`, `docs/DECISIONS.md`, `docs/DATA-MODEL.md`, `docs/DEPENDENCIES.md`, `docs/API-SURFACE.md`, `docs/GLOSSARY.md`): Vollständige Entfernung aller Calendly-Abhängigkeiten und -Schnittstellen. Markierung von ADR 4 als abgelöst und obsolet.
+- **RC-07** ✅ **Changelog-Aktualisierung** (`CHANGELOG.md`): Festhalten der Änderungen im manuellen Changelog unter Version `1.7.0`.
+
+---
+
+## [1.9.0-callback-form] — 2026-07-09
+
+### Integration des Formspree Rückruf-Formulars & AJAX-Submit
+- **CF-01** ✅ **HTML-Struktur Rückruf-Sektion** (`index.html`): Hinzufügen einer neuen Sektion (`#callback-form`, `.callback-section`) mit Einleitungstext, dem Formular (`#formspree-callback`) mit Feldern für `name`, `email` und `telefon` (alle optional, ohne required-Attribut), dem Submit-Button und dem standardmäßig ausgeblendeten Erfolgs-Text (`#form-success`).
+- **CF-02** ✅ **Einfügung AJAX-Submit Logik** (`js/main.js`): Abfangen des Formular-Submissions via `e.preventDefault()`, Durchführung eines asynchronen HTTPS-POST `fetch` an die Formspree API (`https://formspree.io/f/xeebyjww`), Ausführung einer weichen Ausblendungs-Animation für das Formular und Einblenden der Erfolgsmeldung.
+- **CF-03** ✅ **Einbindung in Cursor-Interaktionen** (`js/main.js`): Aufnahme von `input` in den Selektor der `hoverables`, damit auch Eingabefelder den Custom-Cursor auf Desktop-Geräten vergrößern und orange einfärben.
+- **CF-04** ✅ **Layout und Design-System-Integration** (`style.css`): Implementierung von CSS-Regeln für `.callback-section`, Eingabefelder mit `--bg-secondary` als Hintergrund und `--text-primary` für Text. Hervorhebung aktiver Felder (`:focus`) mit der Akzentfarbe `--accent` und einem leichten Leuchteffekt (`--accent-dim`). Animation der Erfolgsmeldung.
+- **CF-05** ✅ **Schnittstellen- und Abhängigkeitsdokumentation** (`docs/API-SURFACE.md`, `docs/DEPENDENCIES.md`): Erfassung von Formspree als neue externe API-Schnittstelle und Dependency unter Angabe des Verwendungszwecks, Datenschutzrelevanz (direkter Client-zu-Server-POST) und Datenfluss-Eigenschaften.
+- **CF-06** ✅ **Aktualisierung des manuellen Changelogs** (`CHANGELOG.md`): Festhalten der Änderungen unter Version `1.6.0`.
+
+---
+
 ## [1.8.0-assets-gitignore] — 2026-07-09
 
 ### Behebung der fehlenden Favicons/Logos & Hinzufügen von .gitignore

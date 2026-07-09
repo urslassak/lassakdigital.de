@@ -60,7 +60,7 @@ Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es i
 - **Akzente**: Neon-Coral/Orange (`--accent`: `#ff4d1c`) dient als primärer Interaktions-Indikator (Hover-States, Custom Cursor).
 
 ### Typografie
-- Die gesamte Website verwendet die Schriftart **Inter** (geladen via Google Fonts CDN).
+- Die gesamte Website verwendet die Schriftart **Inter** (lokal gehostet zur DSGVO-Konformität).
 - CSS-Variablen `--font-display` und `--font-body` verweisen beide auf `'Inter', sans-serif`, um ein einheitliches Schriftbild zu gewährleisten. Hierarchien werden ausschließlich über Font-Weights (300 bis 800) gesteuert.
 
 ---
@@ -111,9 +111,8 @@ Da es sich um eine rein statische Website handelt, gibt es keinen Backend-Datenf
 ```mermaid
 graph TD
     Client[Browser des Besuchers] -->|HTTP Request| GitHubPages[GitHub Pages Server]
-    GitHubPages -->|Liefert statische Dateien| Client
-    Client -->|Terminbuchung| Calendly[Calendly Iframe Widget]
+    GitHubPages -->|Liefert statische Dateien & lokale Fonts| Client
+    Client -->|Rückrufbitte| Formspree[Formspree AJAX API]
     Client -->|Direktnachricht| WhatsApp[WhatsApp API Link]
     Client -->|E-Mail-Anfrage| MailServer[Lokaler Mail-Client mailto:]
-    Client -->|Lade Schriftart| GoogleFonts[Google Fonts CDN]
 ```
