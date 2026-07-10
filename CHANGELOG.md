@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file.
 ## [1.22.0] - 2026-07-10
 
 ### Changed
-- Das Hauptmenü (Navigation) in ein schwebendes Element ("Floating Menu") umgewandelt. Das Menü besitzt abgerundete Ecken (16px mobil, 20px desktop), einen Außenabstand nach oben (12px mobil, 20px desktop), einen subtilen Schatten und einen verstärkten Glas-Effekt (`backdrop-filter: blur(16px)`). Der Hintergrund wurde als radialer Farbverlauf (`radial-gradient`) passend zum Farbverlauf des Hero-Bereichs (mit leicht goldener Tönung im Zentrum) definiert, und die Umrahmung wurde durch eine weiche goldene Haarlinie (`border: 1px solid rgba(207, 154, 74, 0.2)`) veredelt.
+- Das Hauptmenü (Navigation) in ein schwebendes Element ("Floating Menu") umgewandelt und über `position: fixed` positioniert. Dadurch erstreckt sich der Hintergrund der Hero-Sektion (Farbe, Radialverlauf, Punktraster) nahtlos hinter dem Navigationsbalken über den gesamten oberen Bildschirmbereich.
+- Der Navigationsbalken selbst verwendet einen universell kompatiblen, weißen Glas-Effekt (`rgba(255, 255, 255, 0.75)` mit `backdrop-filter: blur(16px)`) und eine feine Haarlinie (`border: 1px solid var(--border-color)`), um sich harmonisch auf allen Unterseiten zu integrieren.
 - Die Höhe des Navigationsmenüs durch Erhöhung des Paddings leicht vergrößert.
 - Das Logo (`.nav-logo`) im Menü vergrößert (von 24px auf 28px auf Mobilgeräten und von 28px auf 34px auf Desktops), um dessen Präsenz und Wahrnehmbarkeit zu stärken.
-- Spezielle CSS-Regeln für den geöffneten Zustand des mobilen Menüs (`body.mobile-open nav`) hinzugefügt, die das Menü nahtlos ohne Verschiebung des Logos oder des Hamburger-Toggles auf volle Bildschirmbreite ausdehnen.
+- Spezielle CSS-Regeln für den geöffneten Zustand des mobilen Menüs (`body.mobile-open nav`) hinzugefügt, die das Menü nahtlos ohne Verschiebung des Logos oder des Hamburger-Toggles auf volle Bildschirmbreite ausdehnen und Positionierungs-Eigenschaften (`left`, `transform`) zurücksetzen.
 - Die Systemarchitektur-Dokumentation (`docs/architecture.md`) an das neue floating Navigations-Design angepasst.
 
 ## [1.21.0] - 2026-07-10

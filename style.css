@@ -273,19 +273,20 @@ section {
    Navigation Bar (NAV)
    -------------------------------------------------------------------------- */
 nav {
-  position: sticky;
+  position: fixed;
   top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
-  margin: 12px auto;
   width: calc(100% - 32px);
-  background: radial-gradient(circle at center, rgba(207, 154, 74, 0.15) 0%, rgba(252, 250, 246, 0.75) 100%);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(207, 154, 74, 0.2);
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(14, 18, 23, 0.03), 0 1px 3px rgba(14, 18, 23, 0.02);
   transition: all var(--transition-smooth);
@@ -294,7 +295,6 @@ nav {
 @media (min-width: 768px) {
   nav {
     top: 16px;
-    margin: 16px auto;
     width: calc(100% - 48px);
     padding: 16px 28px;
     border-radius: 20px;
@@ -304,7 +304,6 @@ nav {
 @media (min-width: 1024px) {
   nav {
     top: 20px;
-    margin: 20px auto;
     width: calc(100% - 64px);
     max-width: 1200px;
     padding: 18px 36px;
@@ -411,7 +410,8 @@ nav {
 /* Mobile open menu reset for floating nav */
 body.mobile-open nav {
   top: 0;
-  margin: 0;
+  left: 0;
+  transform: none;
   width: 100%;
   max-width: 100%;
   border-radius: 0;
