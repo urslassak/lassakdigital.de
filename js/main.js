@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Dynamically load webmanifest only if not on file:// protocol (prevents local CORS errors)
+  if (window.location.protocol !== 'file:') {
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = 'site.webmanifest';
+    document.head.appendChild(link);
+  }
+
   // 1. Dynamic Custom Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
@@ -29,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.height = '14px';
         ring.style.width = '48px';
         ring.style.height = '48px';
-        ring.style.borderColor = 'rgba(0, 229, 255, 0.7)';
+        ring.style.borderColor = 'rgba(207, 154, 74, 0.7)';
       });
       el.addEventListener('mouseleave', () => {
         cursor.style.width = '8px';
@@ -130,6 +138,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (error) {
         alert('Ups! Es gab ein Problem beim Absenden des Formulars. Bitte überprüfe Deine Internetverbindung.');
+      }
+    });
+  }
+
+  // 5. About Modal Dialog (Über mich)
+  const aboutModal = document.getElementById('aboutModal');
+  const openModalBtn = document.getElementById('openAboutModal');
+  const closeModalBtn = document.getElementById('closeAboutModal');
+
+  if (aboutModal && openModalBtn && closeModalBtn) {
+    openModalBtn.addEventListener('click', () => {
+      aboutModal.showModal();
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      aboutModal.close();
+      document.body.style.overflow = '';
+    });
+
+    // Close when clicking on the backdrop
+    aboutModal.addEventListener('click', (e) => {
+      const rect = aboutModal.getBoundingClientRect();
+      const isInDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if (!isInDialog) {
+        aboutModal.close();
+        document.body.style.overflow = '';
       }
     });
   }

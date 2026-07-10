@@ -2,6 +2,88 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.22.0] - 2026-07-10
+
+### Changed
+- Das Hauptmenü (Navigation) in ein schwebendes Element ("Floating Menu") umgewandelt. Das Menü besitzt abgerundete Ecken (16px mobil, 20px desktop), einen Außenabstand nach oben (12px mobil, 20px desktop), einen subtilen Schatten und einen verstärkten Glas-Effekt (`backdrop-filter: blur(16px)`). Der Hintergrund wurde als radialer Farbverlauf (`radial-gradient`) passend zum Farbverlauf des Hero-Bereichs (mit leicht goldener Tönung im Zentrum) definiert, und die Umrahmung wurde durch eine weiche goldene Haarlinie (`border: 1px solid rgba(207, 154, 74, 0.2)`) veredelt.
+- Die Höhe des Navigationsmenüs durch Erhöhung des Paddings leicht vergrößert.
+- Das Logo (`.nav-logo`) im Menü vergrößert (von 24px auf 28px auf Mobilgeräten und von 28px auf 34px auf Desktops), um dessen Präsenz und Wahrnehmbarkeit zu stärken.
+- Spezielle CSS-Regeln für den geöffneten Zustand des mobilen Menüs (`body.mobile-open nav`) hinzugefügt, die das Menü nahtlos ohne Verschiebung des Logos oder des Hamburger-Toggles auf volle Bildschirmbreite ausdehnen.
+- Die Systemarchitektur-Dokumentation (`docs/architecture.md`) an das neue floating Navigations-Design angepasst.
+
+## [1.21.0] - 2026-07-10
+
+### Changed
+- Den radialen Verlauf in der Hero-Sektion vergrößert, sodass der goldene Schein fast die gesamte Sektion ausfüllt. Dazu wurden Farbstopps bei 70% und das Auslaufen des Gradienten auf 140% angepasst.
+
+## [1.20.0] - 2026-07-10
+
+### Added
+- Einen radialen Verlauf von hellem Gold (`rgba(207, 154, 74, 0.15)`) zu weiß (`#ffffff`) im Hintergrund der Hero-Sektion (`.hero`) hinzugefügt, gesteuert über neue CSS-Variablen (`--white`, `--hero-bg-gradient`).
+
+## [1.19.0] - 2026-07-10
+
+### Changed
+- Den Media-Query-Schwellenwert für das zweispaltige Desktop-Layout des Hero-Bereichs in `style.css` von `1024px` auf `768px` herabgesetzt. Das Foto wird dadurch ab 768px (z. B. auf iPads und Tablets) ungespiegelt rechts an die Schrift angelehnt positioniert.
+
+### Fixed
+- Die Ausrichtung des gespiegelten Hero-Porträts auf Mobilgeräten (< 768px) in `style.css` korrigiert. Durch Festlegung von `justify-content: flex-start` auf `.hero-image-wrapper` und `object-position: right` auf `.hero-img` (was sich nach der horizontalen Spiegelung `transform: scaleX(-1)` in eine linksbündige Ausrichtung umwandelt) schmiegt sich das Bild auf allen schmalen Bildschirmbreiten nahtlos und lückenlos an den linken Displayrand an.
+
+## [1.18.0] - 2026-07-10
+
+### Changed
+- Website-Farbschema komplett von Dark-Theme auf Light-Theme (Beige/Gold-Optik inspiriert von aiscwork.com) umgestellt:
+  - Definition von warmem Ivory-Beige-Hintergrund (`#fcfaf6`), dunkler Ink-Schrift (`#0e1217`) und edlen Gold-Akzenten (`#cf9a4a`).
+  - Anpassung der Navigation, der Mobilmenü-Überlagerung, der hero glows, des Workflow-Bereichs und des Modals in `style.css` zur Gewährleistung barrierefreier Kontraste auf hellem Untergrund.
+  - Austausch des weißen Logos (`images/logo_lassakdigital-white.svg`) gegen das schwarze/dunkle Logo (`images/logo_lassakdigital-black.svg`) in `index.html`, `impressum.html` und `datenschutz.html` für maximale Sichtbarkeit.
+  - Aktualisierung der Hover-Farbe des dynamischen Cursors in `js/main.js` auf ein transluzentes Gold (`rgba(207, 154, 74, 0.7)`).
+  - Aktualisierung der Systemarchitektur-Dokumentation (`docs/architecture.md`) und der Design-Richtlinien (`AGENTS.md`).
+
+## [1.17.0] - 2026-07-10
+
+### Fixed
+- Korrekturen an Rechtschreibung, Grammatik, Interpunktion und Silbentrennung im deutschen Website-Text:
+  - Ersetzung von "Bodensee-Region" durch das binde- und trennungsfreie "Bodenseeregion" (SEO-Tags, strukturierte Daten und Fließtexte).
+  - Korrektur von fehlerhaften Trennungen bzw. Zusammenfügungen wie "Social-Media-Beitrag" (statt "Social Media Beitrag") und "Content-Planung" (statt "Content Planung").
+  - Ergänzung des grammatikalisch notwendigen Koppelungsstrichs in "Instagram- oder TikTok-Kanal".
+  - Berichtigung der Präpositionalkonstruktion "in eine Sprache übersetzen" (statt zuvor "in einer Sprache").
+  - Korrektur von "E-Mail-Adresse" (zuvor "E-Mail Adresse").
+  - Behebung von Fehlern bei Groß- und Kleinschreibung im Fließtext (z. B. "dir" statt "Dir") sowie Anpassung von Adjektiven in Workflow-Titeln auf Kleinschreibung ("transparente Berichte", "sicheres Wachstum").
+  - Entfernung von unnötigen Kommas in Einschüben bei Schritt 4 der Timeline.
+  - Fehlerkorrektur eines unvollständigen Satzfragments unter Abschnitt 1 ("Datenschutz auf einen Blick") in `datenschutz.html`.
+  - Aktualisierung der gesetzlichen Anbieterkennzeichnung in der Meta-Description von `impressum.html` auf das aktuelle DDG (Digitale-Dienste-Gesetz).
+
+### Changed
+- Herstellung einer konsistenten Anrede auf der Landingpage: Alle verbliebenen formalen "Sie"- und "Ihr"-Formen (u. a. im Abschnitt "Direkter Draht" und in der Modal-Beschreibung) wurden an das einheitliche, informelle "du" angepasst.
+
+## [1.16.0] - 2026-07-10
+
+### Added
+- Integration eines Ganzkörper-Porträtfotos (`images/urs_lassak.png`) in der Hero-Sektion mit responsivem Aufbau: Auf Desktop lehnt sich das Foto links (ohne Spiegelung) bündig an die rechtsbündig und links ausgerichtete H1-Überschrift an (`margin-right: -70px`). Auf Mobilgeräten und Tablets wird das Foto links absolut im oberen Bereich (`top: 20px; bottom: auto`) positioniert, über `transform: scaleX(-1)` gespiegelt (sodass sich der Gründer an den linken Bildschirmrand lehnt) und vom Text (Breite 65% auf der rechten Seite) teilweise überlagert. Vertikale Zentrierung stabilisiert die Schrift beim Skalieren.
+- Schwebendes, glassmorphisches Namensschild (`.hero-name-tag`) in Cyber-Optik: Stellt Name und Button auf Mobilgeräten untereinander gestapelt und auf Desktop nebeneinander dar.
+- Native, barrierefreie `<dialog id="aboutModal" class="about-modal">` Komponente für eine ausführliche persönliche Gründerbeschreibung (textbasiert ohne wiederholtes Foto), gestaltet im dunkelblauen Deep-Tech-Design mit schlanker Breite und Fading-Animation.
+
+### Changed
+- Ergänzung der Event-Listener in `js/main.js` zum Steuern des Modals (Öffnen/Schließen, Hintergrund-Scroll-Lock und Schließen des Modals bei Klick außerhalb auf das Backdrop).
+
+## [1.15.0] - 2026-07-10
+
+### Fixed
+- Behebung von CORS-Fehlern in der Webkonsole bei lokaler Ausführung (über das `file://`-Protokoll), indem der Link zum Web-App-Manifest (`site.webmanifest`) dynamisch über JavaScript geladen wird, sobald die Seite über eine Webserver-Umgebung (`http://` oder `https://`) aufgerufen wird. Die statischen `<link rel="manifest">`-Verweise wurden aus `index.html`, `datenschutz.html` und `impressum.html` entfernt.
+
+## [1.14.0] - 2026-07-10
+
+### Fixed
+- Behebung des fehlerhaften Darstellungsfehlers beim Frosted-Glass-Effekt des Navigations-Headers (`nav`) in `style.css` durch explizites Einbinden der `backdrop-filter`- und `border-bottom`-Regeln in die Desktop-Medienabfrage (`(min-width: 1024px)`).
+- Bereinigung der HTML-Struktur der 7-Schritte-Workflow-Karten in `#workflow` (`index.html`), inklusive Bereinigung von Trennungsabständen und Satzzeichen sowie Korrektur eines Rechtschreibfehlers ("als nächstes") und Vervollständigung des ersten Schritts.
+- Korrekte Implementierung des durchlaufenden Banners (Infinite Marquee) direkt über dem Rückruf-Formular (`index.html`) gemäß der exakten HTML-Strukturvorgabe unter Beibehaltung der CSS-Keyframe-Animation (`marquee-scroll`).
+
+### Changed
+- Anpassung des Footer-Stylings in `style.css` an das nachtblaue "Deep Tech & Trust" Dark-Theme (Hintergrundfarbe auf `var(--bg-secondary)` gesetzt, dezente obere Rahmenlinie `1px solid rgba(255, 255, 255, 0.05)` hinzugefügt, Textfarben auf `var(--text-secondary)` aktualisiert) und Implementierung eines Cyber-Cyan Leucht-Hovereffekts für Footer-Links mit Textschatten.
+
+### Removed
+- Entfernung des "Mein Workflow..."-Untertitels in der Sektion `#workflow` (`index.html`) zur Erhöhung des visuellen Minimalismus.
+
 ## [1.13.0] - 2026-07-10
 
 ### Added

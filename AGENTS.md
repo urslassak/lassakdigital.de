@@ -6,15 +6,16 @@
 - Deployment: GitHub Pages (`www.lassakdigital.de` via Namecheap CNAME/A-records).
 
 ## Design System (style.css)
-- Dark Theme:
-  - `--bg-primary: #040d1a;` (Body bg, Nachtblau)
-  - `--bg-secondary: #0b172a;` (Card bg/Marineblau)
-  - `--text-primary: #ffffff;` (Headers, Klares Weiß)
-  - `--text-secondary: #94a3b8;` (Fließtexte, Helles Blaugrau)
-  - `--accent: #00e5ff;` (Cyber-Cyan / Neon-Hellblau)
-  - `--accent-hover: #00b8cc;` (Dunkleres Cyan)
-  - `--accent-glow: rgba(0, 229, 255, 0.4);`
-  - `--border-color: rgba(255, 255, 255, 0.08);`
+- Light Theme (Beige/Gold - inspired by aiscwork.com):
+  - `--bg-primary: #fcfaf6;` (Body bg, Ivory)
+  - `--bg-secondary: #f3f1ee;` (Section bg, Warm Muted Grey/Beige)
+  - `--bg-card: #ffffff;` (Card bg, Pure White)
+  - `--text-primary: #0e1217;` (Headers, Ink Black)
+  - `--text-secondary: #5f6469;` (Body text, Ink Muted)
+  - `--accent: #cf9a4a;` (Accent Gold)
+  - `--accent-hover: #b07e38;` (Accent hover dark gold)
+  - `--accent-glow: rgba(207, 154, 74, 0.35);`
+  - `--border-color: #e1ddd8;` (Hairline border)
   - `--font-display: 'Inter', sans-serif;`
   - `--font-body: 'Inter', sans-serif;`
 

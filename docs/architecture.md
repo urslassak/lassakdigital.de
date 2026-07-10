@@ -51,13 +51,13 @@ Die Website ist als performante, statische Landingpage konzipiert und verwendet 
 
 ## 2. Design-System & Typografie
 
-Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es implementiert ein hochwertiges, kaufmännisch-seriöses Dark-Theme ("Deep Tech & Trust") mit kühlem Nachtblau, Marineblau und leuchtenden Cyber-Cyan-Akzenten.
+Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es implementiert ein hochwertiges, kaufmännisch-seriöses Light-Theme ("Ivory, Gold & Ink") mit warmem Ivory-Beige-Hintergrund, dunkler Ink-Schrift und edlen Gold-Akzenten (inspiriert von aiscwork.com).
 
 ### Farbpalette
-- **Hintergrund**: `--bg-primary` (`#040d1a`) sorgt für ein tiefes, nachtblaues Fundament.
-- **Card- und Hilfshintergründe**: `--bg-secondary` (`#0b172a`) heben Inhaltsbereiche durch ein dunkleres Marineblau ab.
-- **Textfarben**: `--text-primary` (`#ffffff`) für eine klare Hierarchie der Überschriften in reinem Weiß; `--text-secondary` (`#94a3b8`) für angenehm lesbaren, hell-blaugrauen Fließtext.
-- **Akzente**: Cyber-Cyan / Neon-Hellblau (`--accent`: `#00e5ff`) dient als primärer Interaktions-Indikator, mit dunklerem Cyan (`--accent-hover`: `#00b8cc`) für Button-Hovers und einem transluzenten Cyber-Cyan (`--accent-glow`: `rgba(0, 229, 255, 0.4)`) für weiche Glühschatten.
+- **Hintergrund**: `--bg-primary` (`#fcfaf6`) sorgt für ein einladendes, warmes Elfenbein-Fundament.
+- **Card- und Hilfshintergründe**: `--bg-secondary` (`#f3f1ee`) heben Inhaltsbereiche durch ein dezentes Warm-Beige ab; `--bg-card` (`#ffffff`) wird für weiße Inhaltskarten verwendet.
+- **Textfarben**: `--text-primary` (`#0e1217`) für eine klare Hierarchie der Überschriften in Ink-Schwarz; `--text-secondary` (`#5f6469`) für angenehm lesbaren, dunklen Fließtext.
+- **Akzente**: Edles Gold (`--accent`: `#cf9a4a`) dient als primärer Interaktions-Indikator, mit dunklerem Gold (`--accent-hover`: `#b07e38`) für Button-Hovers und einem transluzenten Gold-Beige (`--accent-glow`: `rgba(207, 154, 74, 0.35)`) für weiche Glühschatten.
 
 ### Typografie
 - Die gesamte Website verwendet die Schriftart **Inter** (lokal gehostet zur DSGVO-Konformität).
@@ -71,7 +71,7 @@ Das Design-System ist in `style.css` über CSS Custom Properties definiert. Es i
 Auf Desktop-Geräten (gefiltert via `@media (pointer: fine)`) wird der Standard-Mauszeiger des Systems ausgeblendet (`cursor: none`) und durch zwei CSS-Elemente ersetzt:
 - **Dot Cursor (`.cursor`)**: Folgt den Mauskoordinaten ohne Verzögerung.
 - **Ring Cursor (`.cursor-ring`)**: Folgt der Mausposition verzögert über einen Easing-Algorithmus in JS (`rx += (mx - rx) * 0.15`), was eine flüssige Bewegung erzeugt.
-- **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem leuchtenden Cyber-Cyan (`rgba(0, 229, 255, 0.7)`).
+- **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem edlen Gold (`rgba(207, 154, 74, 0.7)`).
 
 ### Scroll-Reveal-Animation
 Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: translateY(30px)`). 
@@ -83,16 +83,16 @@ Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: t
 Am unteren Rand des Hero-Bereichs (Above the Fold) befindet sich ein nach unten zeigender Interaktions-Pfeil (`.hero-scroll-btn`).
 - **Animation**: Der Pfeil führt eine kontinuierliche, vertikale Schweb-Animation (`arrowBounce`) via CSS `@keyframes` aus (`translateY(0)` bis `translateY(10px)`).
 - **Smooth Scroll**: Beim Klick auf den Pfeil scrollt die Seite mittels nativem CSS-Verhalten (`scroll-behavior: smooth`) sanft zur nachfolgenden Sektion (`#approach`).
-- **Custom Cursor Integration**: Da der Pfeil als `<a>`-Link implementiert ist, greift die Hover-Erkennung des dynamischen Cursors. Bei Mausberührung skaliert der `.cursor-ring` auf 48px und färbt sich cyber-cyan (`rgba(0, 229, 255, 0.7)`).
+- **Custom Cursor Integration**: Da der Pfeil als `<a>`-Link implementiert ist, greift die Hover-Erkennung des dynamischen Cursors. Bei Mausberührung skaliert der `.cursor-ring` auf 48px und färbt sich gold (`rgba(207, 154, 74, 0.7)`).
 
 ---
 
 ## 4. Navigations-System & Diskrepanzen
 
 ### Navigations-Struktur
-Die Navigation ist sticky am oberen Bildschirmrand positioniert.
-- **Desktop (>= 1024px)**: Horizontale Menüleiste mit Logo links und einem Call-to-Action-Button ("Jetzt anfragen") rechts.
-- **Mobil (< 1024px)**: Einblendung eines Hamburger-Menü-Icons. Beim Klick wird ein vollflächiges, semitransparentes Menü (Glassmorphismus-Effekt) vertikal heruntergefahren.
+Die Navigation ist als schwebende, glassmorphische Menüleiste ("Floating Menu") positioniert, die sich beim Scrollen an den oberen Bildschirmrand heftet.
+- **Desktop (>= 1024px)**: Zentrierte, schwebende Menüleiste (max-width: 1200px) mit großzügigem Abstand nach oben, abgerundeten Ecken (20px), edlem Glas-Effekt (`backdrop-filter: blur(16px)`) und einem radialen Farbverlauf (`radial-gradient` mit goldfarbenem Zentrum und transluzenten Rändern), der sich optisch perfekt in den radialen Verlauf des Hero-Bereichs einpasst. Der Kontrast wird durch eine umlaufende, weiche goldene Haarlinie (`border: 1px solid rgba(207, 154, 74, 0.2)`) gestärkt. Das Logo ist vergrößert (34px Höhe).
+- **Mobil (< 1024px)**: Schwebende Menüleiste (28px Logohöhe) mit Abstand nach oben, ebenfalls mit radialem Verlauf und goldener Haarlinie. Beim Klick auf das Hamburger-Menü-Icon dehnt sich die Navigation nahtlos auf volle Bildschirmbreite aus (`body.mobile-open nav`), wobei der Hintergrund auf transparent gesetzt wird und ein vollflächiges Menü (`.nav-menu`) mit starkem Unschärfe-Effekt herunterfährt.
 
 ### Dokumentierte vs. Reale Funktionalität (Wichtiger Audit-Befund)
 In früheren Versionen der Dokumentation (`architecture.md`) und im `CHANGELOG.md` (Version 1.1.0) wurden **Dropdown-Untermenüs** für Navigationspunkte wie `Leistungen`, `Case Studies` und `Preise` beschrieben. 

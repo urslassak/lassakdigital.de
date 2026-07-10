@@ -2,6 +2,111 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.29.0-floating-navigation] — 2026-07-10
+
+### Schwebende, glassmorphische Navigationsleiste ("Floating Menu") und Logo-Vergrößerung
+- **FN-01** ✅ **Floating Layout & Glass-Effekt** (`style.css`): Umwandlung der Navigation von einer flachen, fixierten Leiste in ein schwebendes, zentriertes Element mit Außenabständen (12px mobil, 16px tablet, 20px desktop) und abgerundeten Ecken (16px mobil, 20px desktop). Anpassung des Hintergrunds an den radialen Farbverlauf des Hero-Bereichs mittels `radial-gradient` (goldenes Zentrum und transluzente Ränder) und Veredelung des Rahmens durch eine umlaufende, weiche goldene Haarlinie (`border: 1px solid rgba(207, 154, 74, 0.2)`). Verstärkung des Glas-Effekts durch `backdrop-filter: blur(16px)` und Hinzufügen eines feinen Schattens zur optischen Abhebung vom Hintergrund.
+- **FN-02** ✅ **Erhöhte Präsenz & Padding** (`style.css`): Vergrößerung der vertikalen Paddings im Menü und Erhöhung der Logohöhe (`.nav-logo`) auf 28px (mobil) bzw. 34px (ab 1024px Breite), um die Präsenz des Brandings zu stärken.
+- **FN-03** ✅ **Ruckelfreie Mobil-Menü-Erweiterung** (`style.css`): Einführung von `body.mobile-open nav` Stilen, die beim Aktivieren des mobilen Menüs die Floating-Eigenschaften temporär zurücksetzen (volle Breite, keine Eckenabrundung, transparenter Hintergrund). Die Paddings sind so austariert, dass das Logo und der Hamburger-Button an exakt derselben Bildschirmposition verharren und das Vollbildmenü flüssig überlagern, ohne Sprünge oder Layout-Shifts zu erzeugen.
+- **FN-04** ✅ **Dokumentation & Changelogs** (`docs/architecture.md`, `CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Nachführung des geänderten Verhaltens in den Konventionen und den Release-Logs.
+
+## [1.28.0-hero-radial-gradient-expansion] — 2026-07-10
+
+### Erweiterung des radialen Verlaufs in der Hero-Sektion
+- **RG-04** ✅ **Vergrößerung des Verlaufs-Radius** (`style.css`): Anpassung der CSS-Variable `--hero-bg-gradient` auf einen breiteren Radius. Durch Einfügen eines Zwischenschritts von `rgba(207, 154, 74, 0.05) 70%` und das Verschieben des weißen Endpunkts (`var(--white)`) auf `140%` erstreckt sich der goldene Glüheffekt nun über fast die gesamte Hero-Sektion.
+- **RG-05** ✅ **Changelog-Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Erfassung des angepassten Gradienten.
+
+---
+
+## [1.27.0-hero-radial-gradient] — 2026-07-10
+
+### Radialer Verlauf in der Hero-Sektion
+- **RG-01** ✅ **CSS Custom Properties für Farbverlauf** (`style.css`): Definition der Variablen `--white: #ffffff;` und `--hero-bg-gradient: radial-gradient(circle at center, rgba(207, 154, 74, 0.15) 0%, var(--white) 100%);` im `:root`-Bereich, um hartkodierte Farbwerte im Stylesheet zu vermeiden.
+- **RG-02** ✅ **Anwendung des radialen Verlaufs** (`style.css`): Zuweisung von `background: var(--hero-bg-gradient);` auf die `.hero`-Klasse, um einen sanften Verlauf von hellem Gold im Zentrum zu reinem Weiß am Rand der Hero-Sektion zu erzeugen.
+- **RG-03** ✅ **Changelog-Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Erfassung des Verlaufs und der Variablen in den Changelogs.
+
+---
+
+## [1.26.0-mobile-hero-photo-fix] — 2026-07-10
+
+### Ausrichtung und Responsivität des Hero-Fotos
+- **HP-08** ✅ **Korrektur der mobilen Bündigkeit** (`style.css`): Anpassung der CSS-Eigenschaften für das Hero-Foto (`.hero-img`) und dessen Container (`.hero-image-wrapper`) auf Mobilgeräten (< 768px). Durch Umstellung von `justify-content: center` auf `justify-content: flex-start` im Wrapper und das Hinzufügen von `object-position: right` beim Foto wird sichergestellt, dass das gespiegelte Portrait nahtlos und unabhängig von der Displaybreite bündig am linken Bildschirmrand anliegt.
+- **HP-09** ✅ **Anpassung der Tablet- und Desktop-Schwelle** (`style.css`): Herabsenken des Media-Query-Schwellenwerts für das zweispaltige Hero-Layout von `1024px` auf `768px`. Dadurch wird das Foto auf allen Geräten ab einer Breite von 768px (wie iPads/Tablets) rechts an den Text angelehnt, nicht mehr gespiegelt dargestellt (`transform: none`, `object-position: center`) und bündig neben dem Text positioniert (`.hero-image-wrapper` restauriert).
+
+---
+
+## [1.25.0-light-theme-migration] — 2026-07-10
+
+### Migration von Dark auf Light Theme (Beige/Gold Look)
+- **LT-01** ✅ **CSS Custom Properties Migration** (`style.css`): Umstellung der Farbvariablen von dem dunklen Nachtblau-Design hin zu einem edlen, einladenden Light-Theme mit warmem Ivory-Hintergrund (`#fcfaf6`), dunkler Ink-Schrift (`#0e1217`) und edlen Gold-Akzenten (`#cf9a4a`).
+- **LT-02** ✅ **Anpassung von Deckkraft- und RGB-Schattenregeln** (`style.css`): Aktualisierung aller farb- und transparenzabhängigen CSS-Klassen (z. B. Navigation, mobile `.nav-menu` Überlagerung, Modal-Hintergründe, `.workflow` Bereich, Timeline-Linie) zur Gewährleistung von harmonischen Kontrasten auf hellem Untergrund.
+- **LT-03** ✅ **Logo-Austausch in HTML-Vorlagen** (`index.html`, `impressum.html`, `datenschutz.html`): Aktualisierung aller Vorkommen des weißen SVG-Logos (`images/logo_lassakdigital-white.svg`) auf die dunkle/schwarze Version (`images/logo_lassakdigital-black.svg`), um optimale Sichtbarkeit zu gewährleisten.
+- **LT-04** ✅ **Anpassung des dynamischen Cursors** (`js/main.js`): Aktualisierung der JavaScript-basierten Randfarbe des Cursor-Rings bei Hover-Interaktionen auf das neue transluzente Gold (`rgba(207, 154, 74, 0.7)`).
+- **LT-05** ✅ **Entwickler-Richtlinien & Dokumente** (`AGENTS.md`, `docs/architecture.md`): Nachführung des geänderten Farbschemas und Designsystems in den Projekt-Richtlinien.
+
+---
+
+## [1.24.0-spelling-and-hyphenation] — 2026-07-10
+
+### Korrekturen zur Rechtschreibung, Zeichensetzung und Konsistenz der Anrede
+- **SP-01** ✅ **Konsistente Anredeform ("du")** (`index.html`): Umstellung aller verbleibenden formalen Anreden ("Sie", "Ihr", "Ihre", "Ihnen") auf der Landingpage (inklusive des "Direkter Draht"-Abschnitts und der Modal-Beschreibung) auf die informelle "du"-Form, um eine einheitliche und zielgruppengerechte Kundenansprache zu gewährleisten.
+- **SP-02** ✅ **Optimierung der Rechtschreibung und Silbentrennung** (`index.html`, `impressum.html`, `datenschutz.html`):
+  - Entfernung von unnötigen Bindestrichen durch Ersetzung von "Bodensee-Region" durch das flüssigere "Bodenseeregion" (SEO-Metadaten, JSON-LD und Text).
+  - Korrektur von fehlerhaften Getrennt- und Zusammenschreibungen: "Social Media Beitrag" zu "Social-Media-Beitrag" und "Content Planung" zu "Content-Planung".
+  - Hinzufügen des notwendigen Ergänzungsstrichs in "Instagram- oder TikTok-Kanal".
+  - Korrektur von "in einer Sprache" zu "in eine Sprache" (Akkusativ-Präpositionalobjekt bei "übersetzen").
+  - Behebung von Inkonsistenzen bei der Groß-/Kleinschreibung ("Dir" zu "dir" im Fließtext, "Transparente" und "Sicheres" in H3-Workflow-Titeln kleingeschrieben).
+  - Korrektur von "E-Mail Adresse" zu "E-Mail-Adresse" (Kopplung mit Bindestrich).
+  - Entfernung störender Kommas in der Apposition ("Videos mit den richtigen Effekten und Sounds exakt so...").
+  - Aktualisierung der gesetzlichen Anbieterkennzeichnung in der Meta-Description von `impressum.html` (von "§ 5 TMG" auf das aktuelle "§ 5 DDG").
+- **SP-03** ✅ **Korrektur unvollständiger Sätze** (`datenschutz.html`): Vervollständigung des fragmentierten Satzes unter Abschnitt 1 ("Datenschutz auf einen Blick"), um den korrekten Informationstext wiederherzustellen.
+
+---
+
+## [1.23.0-hero-photo-modal] — 2026-07-10
+
+### Hero-Foto & "Über mich" Modal
+- **HP-01** ✅ **Neues Hero-Layout** (`index.html`): Einführung eines Flex-Containers `.hero-container` zur Trennung von Textinhalten (`.hero-content`) und dem neuen Foto-Wrapper (`.hero-image-wrapper`).
+- **HP-02** ✅ **Foto & Namens-Tag Integration** (`index.html`, `style.css`): Platzierung des Ganzkörper-Porträts `images/urs_lassak.png` in der Hero-Sektion. Ergänzung eines schwebenden, glassmorphischen Namensschilds (`.hero-name-tag`). Auf Mobilgeräten werden Name und Button untereinander gestapelt (`flex-direction: column`) und auf Desktop nebeneinander platziert (`flex-direction: row`).
+- **HP-03** ✅ **Umfassendes CSS-Layout** (`style.css`): Responsive Ausrichtung des Fotos. Auf Smartphones und Tablets wird das Bild links absolut im oberen Bereich platziert (`top: 20px; bottom: auto`), über `transform: scaleX(-1)` gespiegelt (damit sich der Gründer an den linken Bildschirmrand lehnt) und vom rechtsseitigen Text (Breite 65%) teilweise überlagert. Ab Desktop-Breite (1024px) wechselt das Layout zu einer horizontalen, zentrierten Anordnung, bei der das Foto links platziert ist (ohne Spiegelung, margin-right: -70px, align-self: flex-end) und sich visuell bündig an die H1-Überschrift anlehnt. Vertikale Zentrierung stabilisiert die Schrift beim Skalieren.
+- **HP-04** ✅ **Native Dialog-Komponente** (`index.html`): Einbindung eines barrierefreien, textbasierten `<dialog id="aboutModal" class="about-modal">` am Seitenende für die persönliche Beschreibung (ohne wiederholtes Foto).
+- **HP-05** ✅ **Premium Modal-Styling** (`style.css`): Visualisierung des Modals im modernen Nachtblau/Cyber-Cyan Deep-Tech-Design mit schlanker Breite (`max-width: 580px` für textfokussierte Ansicht), großzügigem Padding und sanfter Öffnungs-Skalierung (`modalFadeIn`).
+- **HP-06** ✅ **Interaktive Modal-Logik** (`js/main.js`): JavaScript-Steuerung zum Öffnen und Schließen des Dialogs, Sperrung des Hintergrund-Scrollens (`overflow: hidden`), sowie Erkennung von Klicks auf den Backdrop zur benutzerfreundlichen Schließung.
+- **HP-07** ✅ **Changelog-Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Nachtrag aller Code- und Layoutarbeiten.
+
+---
+
+## [1.22.0-dynamic-webmanifest] — 2026-07-10
+
+### Dynamisches Laden des Webmanifests zur CORS-Behebung
+- **DM-01** ✅ **Entfernung statischer Manifest-Links** (`index.html`, `datenschutz.html`, `impressum.html`): Bereinigung des statischen `<link rel="manifest" href="site.webmanifest" />` aus allen drei HTML-Seiten, um CORS-Fehler (Origin `null`) bei direkter lokaler Ausführung (`file://`-Protokoll) zu verhindern.
+- **DM-02** ✅ **Dynamische Manifest-Injektion** (`js/main.js`): Hinzufügen einer browserseitigen Weiche, die das Manifest über JavaScript nur dann nachlädt, wenn das Protokoll ungleich `file:` ist (d. h. in einer echten Webserver-Umgebung wie der Live-Seite auf GitHub Pages).
+- **DM-03** ✅ **Changelog-Aktualisierungen** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Dokumentation der getroffenen Vorkehrungen in den entsprechenden Änderungsregistern.
+
+## [1.21.0-remove-workflow-subtitle] — 2026-07-10
+
+### Entfernung des Workflow-Untertitels
+- **RW-01** ✅ **Entfernung Untertitel** (`index.html`): Löschung des gesamten `<p class="section-subtitle">` Elements in der Sektion `#workflow` direkt unter der Hauptüberschrift "So arbeiten wir zusammen".
+- **RW-02** ✅ **Markup-Bereinigung & Changelog-Dokumentation** (`index.html`, `CHANGELOG.md`): Überprüfung auf leere Container (keine verblieben) und Dokumentation der inhaltlichen HTML-Bereinigung im zentralen Changelog.
+
+---
+
+## [1.20.0-footer-dark-theme] — 2026-07-10
+
+### Farbanpassung des Footers an das Dark-Theme
+- **FT-01** ✅ **Footer-Styling & Rahmenlinie** (`style.css`): Aktualisierung des `footer`-Elements in `style.css`. Die Hintergrundfarbe wurde auf das weichere Marineblau/Nachtblau (`var(--bg-secondary)`) gesetzt, eine dezente obere Rahmenlinie (`border-top: 1px solid rgba(255, 255, 255, 0.05);`) hinzugefügt und die Textfarbe auf `var(--text-secondary)` angepasst.
+- **FT-02** ✅ **Footer-Links & Hover-Effekt** (`style.css`): Aktualisierung der `.footer-links a` Schriftfarbe auf `var(--text-secondary)`. Implementierung eines Cyber-Cyan Hover-Leuchteffekts (`color: var(--accent); text-shadow: 0 0 8px var(--accent-glow);`) und Aktivierung einer sanften Transition (`transition: all 0.3s ease;`) für einen weichen Farbübergang.
+- **FT-03** ✅ **Konsistenzprüfung & Dokumentation** (`index.html`, `impressum.html`, `datenschutz.html`, `CHANGELOG.md`): Überprüfung der einheitlichen Klassenstruktur (`.footer-inner`, `.footer-links`) auf allen Seiten und Dokumentation der Design-Korrekturen.
+
+---
+
+## [1.19.0-hotfix-and-marquee-reimplementation] — 2026-07-10
+
+### Fehlerbehebung Navigation, Workflow & Banner-Reimplementierung
+- **HF-01** ✅ **Glassmorphismus Navigation** (`style.css`): Explizites Hinzufügen von `backdrop-filter: blur(12px);`, `-webkit-backdrop-filter: blur(12px);` und `border-bottom: 1px solid rgba(255, 255, 255, 0.05);` in die Desktop-Medienabfrage `@media (min-width: 1024px) nav` in `style.css`, um eine einheitliche und fehlerfreie Darstellung der Navigationsleiste auf großen Bildschirmen zu erzwingen.
+- **HF-02** ✅ **Workflow-HTML & Textkorrekturen** (`index.html`): Validierung und Korrektur aller 7 `.workflow-card` Container. Behebung kleinerer Text- und Interpunktionsfehler im Beschreibungstext von Schritt 3 (Hinzufügen eines Satzpunktes und Trennen von "als nächstes") sowie Ergänzung der Formulierung bei Schritt 1 zur Harmonisierung mit der Textvorlage.
+- **HF-03** ✅ **Priority Banner Re-Implementierung** (`index.html`): Einpflege des vom Nutzer exakt vorgegebenen HTML-Snippets für das durchlaufende Text-Banner (Änderung der Überschrift in ein `h4` Element, Entfernung der `reveal`-Klasse für verbesserte Benutzerfreundlichkeit und Nutzung von reinen Text-Trennzeichen `|` statt CSS-Spans) direkt vor der Rückruf-Sektion (`#callback-form`).
+
 ## [1.18.0-priority-banner] — 2026-07-10
 
 ### CSS-basiertes durchlaufendes Text-Banner (Infinite Marquee)
