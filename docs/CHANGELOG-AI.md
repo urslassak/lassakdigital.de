@@ -2,6 +2,35 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.32.0-golden-badge-contact-icons] — 2026-07-11
+
+### "Golden Badge" Styling für Kontakt-Icons (WhatsApp und E-Mail)
+- **CI-01** ✅ **Einbindung von Inline-SVGs** ([index.html](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/index.html)): Ersetzung der bisherigen Text-Emojis (`✉` und `💬`) durch optimierte, responsive Inline-SVG-Vektorgrafiken. Das WhatsApp-Symbol nutzt nun ein sauberes, kreisrundes Sprechblasen-Design mit drei Punkten (Chat-Symbol), um Darstellungsfehler des Telefonhörers zu korrigieren.
+- **CI-02** ✅ **Erstellung des Badge-Designs** ([style.css](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/style.css)): Aktualisierung von `.contact-method-icon` zu einem runden Badge (`border-radius: 50%`) mit fester Größe (`56px x 56px`), Flex-Zentrierung der SVG-Grafiken, warm-beiger Hintergrundfarbe (`var(--bg-secondary)`), dunkler Strichfarbe (`var(--text-primary)`), Vermeidung von Layout-Verschiebungen (`flex-shrink: 0`) und einer weichen Transition (`0.3s cubic-bezier(0.16, 1, 0.3, 1)`).
+- **CI-03** ✅ **Hover-Interaktionen & Animationen** ([style.css](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/style.css)): Hinzufügen der CSS-Regel `.contact-method:hover .contact-method-icon`. Bei Hover über die gesamte Kontaktkarte wechselt die Hintergrundfarbe zu Gold (`var(--accent)`), das Icon zu hellem Ivory (`var(--bg-primary)`), das Badge skaliert leicht (`scale(1.1)`) und erhält einen goldenen Glühschatten (`0 4px 15px var(--accent-glow)`).
+- **CI-04** ✅ **Release-Dokumentation** ([CHANGELOG.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/CHANGELOG.md), [docs/CHANGELOG-AI.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/docs/CHANGELOG-AI.md)): Strukturierte Dokumentation der vorgenommenen Änderungen und Veröffentlichungen.
+
+---
+
+## [1.31.0-priority-banner-adaptation] — 2026-07-11
+
+### Anpassung der Banner-Überschrift (Text & Gold)
+- **PB-01** ✅ **HTML-Anpassung der Banner-Überschrift** (`index.html`): Änderung des Texts der Überschrift `.priority-headline` von "Welcher dieser Punkte hat für dich höchste Priorität? Lass es mich wissen." zu "Die Vorteile unserer Zusammenarbeit".
+- **PB-02** ✅ **CSS-Farbanpassung & Ausrichtung** (`style.css`): Änderung der Textfarbe der Überschrift `.priority-headline` auf das edle Gold des etablierten Design-Systems (`color: var(--accent);`). Die Überschrift bleibt über die Textausrichtung des Elternelements zentriert und behält den definierten Abstand zum Marquee-Text darunter (`margin-bottom: 2.5rem;`).
+- **PB-03** ✅ **Changelogs & Dokumentation** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Nachtragen und Dokumentieren der Änderungen in beiden Changelogs.
+
+---
+
+## [1.30.0-process-numbers-contrast] — 2026-07-11
+
+### Optimierung Kontrast & Interaktion der Prozess-Zahlen (Ink-to-Gold Shift)
+- **PN-01** ✅ **Klassenumbenennung und HTML-Struktur** (`index.html`): Ersetzung der CSS-Klasse `process-num` durch `process-number` in den vier Prozesskarten (`.process-card`) des `#approach` Bereichs, um eine einheitliche und semantische Struktur sicherzustellen.
+- **PN-02** ✅ **CSS-Refactoring & Kontrast-Optimierung** (`style.css`): Entfernung der veralteten Klasse `.process-num` und Implementierung von `.process-number`. Festlegung der Standard-Textfarbe auf das kontraststarke Ink-Schwarz (`var(--text-primary)`) zur besseren Lesbarkeit im Light-Theme. Anpassung der Typografie auf `3rem` und `font-weight: 700` sowie Beibehaltung der vollen Deckkraft (`opacity: 1`).
+- **PN-03** ✅ **Ink-to-Gold Shift & Hover-Interaktion** (`style.css`): Hinzufügen einer flüssigen Transition (`transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1)`) und Definition der Hover-Regel `.process-card:hover .process-number`. Bei Hover über die gesamte Karte wechselt die Textfarbe zu Gold (`var(--accent)`) bei gleichzeitiger sanfter Skalierung (`scale(1.05)`) und Verschiebung nach rechts (`translateX(4px)`).
+- **PN-04** ✅ **Dokumentation & Changelogs** (`CHANGELOG.md`, `docs/CHANGELOG-AI.md`): Vollständige Erfassung der Optimierung in beiden Changelogs gemäß der KI-Arbeitsrichtlinien.
+
+---
+
 ## [1.29.0-floating-navigation] — 2026-07-10
 
 ### Schwebende, glassmorphische Navigationsleiste ("Floating Menu") und Logo-Vergrößerung

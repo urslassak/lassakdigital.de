@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.24.0] - 2026-07-11
+
+### Added
+- SVG-Icons (E-Mail und WhatsApp) für die Kontakt-Links in der "Direkter Draht"-Sektion hinzugefügt.
+
+### Changed
+- "Golden Badge" Styling für Kontakt-Icons implementiert: standardmäßig als runder Badge mit warm-beigem Hintergrund (`var(--bg-secondary)`) und dunklem Icon (`var(--text-primary)`). Bei Hover über die Kontaktkarte färbt sich das Badge gold (`var(--accent)`) mit hellem Icon (`var(--bg-primary)`), skaliert leicht (`1.1`) und erhält einen goldenen Glühschatten (`box-shadow: 0 4px 15px var(--accent-glow)`).
+- Das WhatsApp-Symbol durch eine minimalistische Sprechblase mit drei Punkten (Chat-Symbol) ersetzt, um Darstellungsfehler des Telefonhörers zu beheben.
+
+## [1.23.0] - 2026-07-11
+
+### Changed
+- Kontrast und Interaktionsdesign der Prozess-Zahlen (Klassenumbenennung zu `.process-number`) in der `#approach`-Sektion optimiert ("Ink-to-Gold Shift"). Die Zahlen nutzen standardmäßig das dunkle Ink-Schwarz (`var(--text-primary)`) mit vergrößerter Typografie (`3rem`, fett) für maximale Lesbarkeit im Light-Theme. Bei Hover über die gesamte Karte verfärben sich die Zahlen zu Gold (`var(--accent)`) und animieren sich weich mit einer leichten Skalierung (`1.05`) und Verschiebung nach rechts (`4px`).
+- Überschrift des durchlaufenden Banners (Priority Banner) in der `index.html` angepasst (von "Welcher dieser Punkte hat für dich höchste Priorität? Lass es mich wissen." zu "Die Vorteile unserer Zusammenarbeit") und die Textfarbe der Überschrift (`.priority-headline`) in der `style.css` auf das edle Gold des Design-Systems (`var(--accent)`) geändert.
+
 ## [1.22.0] - 2026-07-10
 
 ### Changed
