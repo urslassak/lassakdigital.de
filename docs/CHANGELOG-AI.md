@@ -2,6 +2,15 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.33.0-about-modal-cursor-fix] — 2026-07-12
+
+### Behebung des Cursor-Bugs im "Über mich" Modal
+- **MC-01** ✅ **Reaktivierung des nativen Cursors** ([style.css](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/style.css)): Hinzufügen von CSS-Regeln für `.about-modal` und `.about-modal::backdrop` zur Reaktivierung des standardmäßigen System-Mauszeigers (`cursor: default`) und Festlegung von `cursor: pointer` für interaktive Elemente (`button`, `a`, `.close-btn`) innerhalb des Modals, da der Top-Layer native Dialoge über dem Custom Cursor rendert.
+- **MC-02** ✅ **Ausblenden des Custom Cursors bei geöffnetem Dialog** ([style.css](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/style.css)): Implementierung einer CSS-Regel mit dem `:has()`-Selektor (`body:has(dialog[open]) .cursor, body:has(dialog[open]) .cursor-ring`), die den Custom-Cursor vollständig ausblendet, sobald ein `<dialog>`-Element geöffnet ist.
+- **MC-03** ✅ **Dokumentation & Changelogs** ([CHANGELOG.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/CHANGELOG.md), [docs/CHANGELOG-AI.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/docs/CHANGELOG-AI.md)): Protokollierung des Bugfixes in beiden Changelogs gemäß der KI-Arbeitsrichtlinien.
+
+---
+
 ## [1.32.0-golden-badge-contact-icons] — 2026-07-11
 
 ### "Golden Badge" Styling für Kontakt-Icons (WhatsApp und E-Mail)

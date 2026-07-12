@@ -147,6 +147,24 @@ img {
   }
 }
 
+/* Reaktivierung des nativen Cursors im Top-Layer Modal */
+.about-modal,
+.about-modal::backdrop {
+  cursor: default;
+}
+
+.about-modal button,
+.about-modal a,
+.about-modal .close-btn {
+  cursor: pointer;
+}
+
+/* Verbergen des Custom Cursors bei geöffnetem Dialog */
+body:has(dialog[open]) .cursor,
+body:has(dialog[open]) .cursor-ring {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    Scroll Reveal Animations
    -------------------------------------------------------------------------- */

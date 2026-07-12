@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.25.0] - 2026-07-12
+
+### Fixed
+- Cursor-Anzeige im "Über mich"-Modal (`#aboutModal`) behoben: Da native Dialoge im Top-Layer gerendert werden und somit über dem Custom Cursor liegen, wird nun der native System-Mauszeiger reaktiviert, sobald sich die Maus über dem Modal oder dessen Backdrop befindet.
+- Der Custom Cursor (`.cursor` und `.cursor-ring`) wird über einen `:has()`-Selektor ausgeblendet, sobald ein Dialog geöffnet ist (`body:has(dialog[open])`).
+
 ## [1.24.0] - 2026-07-11
 
 ### Added

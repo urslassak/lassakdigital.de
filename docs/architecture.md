@@ -72,6 +72,7 @@ Auf Desktop-Geräten (gefiltert via `@media (pointer: fine)`) wird der Standard-
 - **Dot Cursor (`.cursor`)**: Folgt den Mauskoordinaten ohne Verzögerung.
 - **Ring Cursor (`.cursor-ring`)**: Folgt der Mausposition verzögert über einen Easing-Algorithmus in JS (`rx += (mx - rx) * 0.15`), was eine flüssige Bewegung erzeugt.
 - **Hover-Effekte**: Beim Überfahren interaktiver Elemente (Links, Buttons) vergrößert sich der Ring und wechselt die Farbe zu einem edlen Gold (`rgba(207, 154, 74, 0.7)`).
+- **Dialog-Ausnahme (Top-Layer)**: Da native `<dialog>`-Elemente im Top-Layer über dem Custom Cursor liegen, wird dieser bei geöffnetem Dialog ausgeblendet (via `body:has(dialog[open]) .cursor, body:has(dialog[open]) .cursor-ring { display: none; }`). Im Dialog und auf dessen Backdrop wird der native System-Cursor verwendet.
 
 ### Scroll-Reveal-Animation
 Elemente mit der Klasse `.reveal` werden ausgeblendet (`opacity: 0; transform: translateY(30px)`). 
