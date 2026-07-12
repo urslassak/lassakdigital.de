@@ -150,12 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (aboutModal && openModalBtn && closeModalBtn) {
     openModalBtn.addEventListener('click', () => {
       aboutModal.showModal();
+      document.body.classList.add('modal-open');
       document.body.style.overflow = 'hidden';
     });
 
     closeModalBtn.addEventListener('click', () => {
       aboutModal.close();
-      document.body.style.overflow = '';
     });
 
     // Close when clicking on the backdrop
@@ -165,8 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
         rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
       if (!isInDialog) {
         aboutModal.close();
-        document.body.style.overflow = '';
       }
+    });
+
+    // Handle dialog close (handles Escape key and programmatical close)
+    aboutModal.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+      document.body.style.overflow = '';
     });
   }
 });

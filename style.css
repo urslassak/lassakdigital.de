@@ -150,19 +150,26 @@ img {
 /* Reaktivierung des nativen Cursors im Top-Layer Modal */
 .about-modal,
 .about-modal::backdrop {
-  cursor: default;
+  cursor: default !important;
 }
 
 .about-modal button,
 .about-modal a,
-.about-modal .close-btn {
-  cursor: pointer;
+.about-modal .close-btn,
+.about-modal .modal-close {
+  cursor: pointer !important;
+}
+
+.about-modal * {
+  cursor: auto !important;
 }
 
 /* Verbergen des Custom Cursors bei geöffnetem Dialog */
 body:has(dialog[open]) .cursor,
-body:has(dialog[open]) .cursor-ring {
-  display: none;
+body:has(dialog[open]) .cursor-ring,
+body.modal-open .cursor,
+body.modal-open .cursor-ring {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------

@@ -5,8 +5,9 @@ All notable changes to this project will be documented in this file.
 ## [1.25.0] - 2026-07-12
 
 ### Fixed
-- Cursor-Anzeige im "Über mich"-Modal (`#aboutModal`) behoben: Da native Dialoge im Top-Layer gerendert werden und somit über dem Custom Cursor liegen, wird nun der native System-Mauszeiger reaktiviert, sobald sich die Maus über dem Modal oder dessen Backdrop befindet.
-- Der Custom Cursor (`.cursor` und `.cursor-ring`) wird über einen `:has()`-Selektor ausgeblendet, sobald ein Dialog geöffnet ist (`body:has(dialog[open])`).
+- Cursor-Anzeige im "Über mich"-Modal (`#aboutModal`) behoben: Da native Dialoge im Top-Layer gerendert werden und somit über dem Custom Cursor liegen, wird der native System-Mauszeiger nun verlässlich reaktiviert (`!important`), sobald sich die Maus über dem Modal oder dessen Backdrop befindet.
+- Der Custom Cursor (`.cursor` und `.cursor-ring`) wird über den `:has()`-Selektor sowie eine `.modal-open`-Hilfsklasse auf `body` ausgeblendet, sobald ein Dialog geöffnet ist.
+- Fehlerhafte Handhabung des Dialog-Schließens über die Escape-Taste behoben: Durch Registrierung des `close`-Events auf dem `<dialog>`-Element wird die `.modal-open`-Hilfsklasse und der Overflow-Blockierer nun in allen Schließ-Szenarien sauber zurückgesetzt.
 
 ## [1.24.0] - 2026-07-11
 
