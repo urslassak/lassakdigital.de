@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [1.25.0] - 2026-07-12
 
+### Changed
+- Vorstellungstext im "Über mich"-Modal (`#aboutModal`) aktualisiert: Inhalt überarbeitet, Alter (21 Jahre) hinzugefügt und in drei separate Absätze gegliedert.
+
 ### Fixed
 - Cursor-Anzeige im "Über mich"-Modal (`#aboutModal`) behoben: Da native Dialoge im Top-Layer gerendert werden und somit über dem Custom Cursor liegen, wird der native System-Mauszeiger nun verlässlich reaktiviert (`!important`), sobald sich die Maus über dem Modal oder dessen Backdrop befindet.
 - Der Custom Cursor (`.cursor` und `.cursor-ring`) wird über den `:has()`-Selektor sowie eine `.modal-open`-Hilfsklasse auf `body` ausgeblendet, sobald ein Dialog geöffnet ist.

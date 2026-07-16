@@ -2,6 +2,14 @@
 
 Dieses Dokument erfasst alle Änderungen, die von KI-Systemen an dieser Codebase vorgenommen werden.
 
+## [1.34.0-about-modal-text-update] — 2026-07-16
+
+### Aktualisierung des "Über mich" Vorstellungstextes
+- **AM-01** ✅ **Aktualisierung des Vorstellungstextes** ([index.html](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/index.html)): Ersetzung des alten Beschreibungstexts durch den neuen Vorstellungstext (drei separate `<p>`-Absätze mit dem aktualisierten Alter "21 Jahre" und angepassten Inhalten), um die Lesbarkeit und Margin-Abstände zu optimieren.
+- **AM-02** ✅ **Changelog-Eintragungen** ([CHANGELOG.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/CHANGELOG.md), [docs/CHANGELOG-AI.md](file:///Users/urs/Meine%20Ablage/Work/04_Marketing/Website/docs/CHANGELOG-AI.md)): Dokumentation der inhaltlichen Aktualisierung in beiden Changelog-Dateien.
+
+---
+
 ## [1.33.0-about-modal-cursor-fix] — 2026-07-12
 
 ### Behebung des Cursor-Bugs im "Über mich" Modal
